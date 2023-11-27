@@ -5,18 +5,18 @@ using UnityEngine;
 public class LyunaScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
-    public float jumpStrength;
+    public Animator objAnimator;
+
+    [Header("Movimentação")]
     public float velocidade;
 
-    private void MovimentarJogador()
-    {
-        float movimentoHorizontal = Input.GetAxis("Horizontal");
-        float pulo = Input.GetAxis("Jump");
-        float eixoX = movimentoHorizontal * velocidade;
-        float eixoY = pulo * jumpStrength;
+    [Header("Pulo")]
+    public bool jogadorEstaTocandoNoChao;
+    public float alturaPulo;
+    public Transform verificadorDeChao;
 
-        rigidBody.velocity = new Vector2(eixoX, eixoY);
-    }
+    public float tamanhoDoVerificadorDeChao;
+    public LayerMask camadaDoChao;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,37 @@ public class LyunaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovimentarJogador();
+        MovimentoJogador();
+        PuloJogador();
+    }
+
+    private void MovimentoJogador()
+    {
+        float movimentoHorizontal = Input.GetAxis("Horizontal"); 
+        float eixoX = movimentoHorizontal * velocidade;
+
+        rigidBody.velocity = new Vector2(eixoX, rigidBody.velocity.y);
+
+        if (jogadorEstaTocandoNoChao) {
+            if (movimentoHorizontal == 0) {
+                objAnimator.Play("lyuna parada");
+            } else {
+                objAnimator.Play("lyuna andando");
+            }
+        }
+    }
+
+    private void PuloJogador()
+    {
+        jogadorEstaTocandoNoChao = Physics2D.OverlapCircle(verificadorDeChao.position, tamanhoDoVerificadorDeChao, camadaDoChao);
+
+        if (jogadorEstaTocandoNoChao) {
+            if (Input.GetButtonDown("Jump")) {
+                rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
+            }
+        } else {
+            objAnimator.Play("lyuna pulando");
+         }
+
     }
 }
