@@ -18,12 +18,6 @@ public class LyunaScript : MonoBehaviour
     public float tamanhoDoVerificadorDeChao;
     public LayerMask camadaDoChao;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,11 +33,7 @@ public class LyunaScript : MonoBehaviour
         rigidBody.velocity = new Vector2(eixoX, rigidBody.velocity.y);
 
         if (jogadorEstaTocandoNoChao) {
-            if (movimentoHorizontal == 0) {
-                objAnimator.Play("lyuna parada");
-            } else {
-                objAnimator.Play("lyuna andando");
-            }
+            objAnimator.Play("lyuna andando");
         }
     }
 
