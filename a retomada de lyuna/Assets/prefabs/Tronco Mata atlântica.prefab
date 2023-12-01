@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 42741071507836146}
   - component: {fileID: 4910649376955473346}
-  - component: {fileID: 1117784241414150918}
   - component: {fileID: 1178435295130757612}
+  - component: {fileID: 6838633806772813449}
   m_Layer: 0
   m_Name: "Tronco Mata atla\u0302ntica"
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,8 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1117784241414150918
-BoxCollider2D:
+--- !u!114 &1178435295130757612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634869861467675610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25819470ac1058445939b2a164713f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &6838633806772813449
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.3726988, y: 2.2174377}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,18 +140,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.549549, y: 2.775364}
-  m_EdgeRadius: 0
---- !u!114 &1178435295130757612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634869861467675610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25819470ac1058445939b2a164713f88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Points:
+    m_Paths:
+    - - {x: 2.7916667, y: 3.03125}
+      - {x: 2.4583335, y: 3.2708335}
+      - {x: 0.9166667, y: 3.3333335}
+      - {x: -0.4166667, y: 2.3645835}
+      - {x: -1.7395834, y: 1.0520834}
+      - {x: -3.3020835, y: -1.40625}
+      - {x: -0.4166667, y: -1.7604167}
+      - {x: 2.78125, y: 2.09375}
+      - {x: 2.9791667, y: 2.8020835}
+  m_UseDelaunayMesh: 0

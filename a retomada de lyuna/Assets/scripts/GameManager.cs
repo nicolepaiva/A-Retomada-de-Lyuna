@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public float gameSpeedIncrease = 0.1f;
     [field: SerializeField] public float gameSpeed { get; private set; }
 
+    private LyunaScript lyuna;
+    private SpawnerScript spawner;
+
     private void Awake()
     {
         if (Instance == null) {
@@ -27,12 +30,34 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        lyuna = FindObjectOfType<LyunaScript>();
+        spawner = FindObjectOfType<SpawnerScript>();
+
         NewGame();
     }
 
     private void NewGame()
     {
+        ObstacleScript[] obstacles = FindObjectsOfType<ObstacleScript>();
+
+        foreach (var obstacle in obstacles) {
+            Destroy(obstacle.gameObject);
+        }
+        
         gameSpeed = initialGameSpeed;
+        enabled = true;
+
+        lyuna.gameObject.SetActive(true);
+        spawner.gameObject.SetActive(true);
+    }
+
+    public void GameOver()
+    {
+        gameSpeed = 0f;
+        enabled = false;
+
+        lyuna.gameObject.SetActive(false);
+        spawner.gameObject.SetActive(false);
     }
 
     private void Update()
