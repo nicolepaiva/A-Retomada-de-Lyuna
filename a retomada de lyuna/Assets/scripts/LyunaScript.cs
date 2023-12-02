@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LyunaScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
     public Animator objAnimator;
+    public string faseNova;
 
     [Header("Movimentação")]
     public float velocidade;
@@ -74,12 +76,20 @@ public class LyunaScript : MonoBehaviour
 
     }
 
+    private void CarregarBatalha()
+    {
+        SceneManager.LoadScene(faseNova);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("colidiu com obstáculo");
+        Debug.Log("colidiu");
         if (other.CompareTag("Obstacle")) {
             Debug.Log("sim é um obstáculo");
             GameManager.Instance.GameOver();
+        } else if (other.CompareTag("Enemy")) {
+            Debug.Log("sim é um inimigo");
+            CarregarBatalha();
         }
     }
 }

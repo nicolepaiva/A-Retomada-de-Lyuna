@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 151150932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.17, y: -6.2, z: 0}
+  m_LocalPosition: {x: -18.17, y: -4.28, z: 0}
   m_LocalScale: {x: 2.9105434, y: 2.9105434, z: 2.9105434}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -284,7 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 151150936}
   objAnimator: {fileID: 151150938}
-  faseNova: fase02
   velocidade: 5
   jogadorEstaTocandoNoChao: 0
   alturaPulo: 10
@@ -849,6 +848,161 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623981710}
   m_CullTransparentMesh: 1
+--- !u!1 &1797704885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797704891}
+  - component: {fileID: 1797704890}
+  - component: {fileID: 1797704889}
+  - component: {fileID: 1797704888}
+  - component: {fileID: 1797704887}
+  - component: {fileID: 1797704886}
+  m_Layer: 6
+  m_Name: "vegeta\xE7\xE3o"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!210 &1797704886
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  m_Enabled: 1
+  m_SortingLayerID: -1361537295
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
+--- !u!114 &1797704887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728c1e65b0518c04dbba3773287f4021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1797704888
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00046396255, y: -0.38000798}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 25.020834, y: 0.29166666}
+    newSize: {x: 25.020834, y: 0.29166666}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0032175, y: 0.23346949}
+  m_EdgeRadius: 0
+--- !u!23 &1797704889
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: da0057cb25d034f4597d7b6845f16f96, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1797704890
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1797704891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797704885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 40, y: 22.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820345747
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +1014,7 @@ GameObject:
   - component: {fileID: 1820345749}
   - component: {fileID: 1820345748}
   m_Layer: 0
-  m_Name: "C\xE9u Mata atla\u0302ntica"
+  m_Name: "C\xE9u Caatinga"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -907,7 +1061,7 @@ SpriteRenderer:
   m_SortingLayerID: -1185502299
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9de4ef51bb647d4fb493371aee0b7c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac23d88e8824da941a9e758641ed03db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -948,7 +1102,7 @@ GameObject:
   - component: {fileID: 1887851319}
   - component: {fileID: 1887851322}
   m_Layer: 6
-  m_Name: ground
+  m_Name: "ch\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1155,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00046396255, y: -0.41981578}
+  m_Offset: {x: 0.00046396255, y: -0.38000798}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1012,7 +1166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0032175, y: 0.16888168}
+  m_Size: {x: 1.0032175, y: 0.23346949}
   m_EdgeRadius: 0
 --- !u!114 &1887851319
 MonoBehaviour:
@@ -1046,7 +1200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef10eec0cefd5f04687615aaebdd402a, type: 2}
+  - {fileID: 2100000, guid: 2caf9c838f9827e47b89601e4f1702fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1084,9 +1238,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887851315}
   m_Enabled: 1
-  m_SortingLayerID: -1185502299
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: -1361537295
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!1 &1974690665
 GameObject:
@@ -1102,7 +1256,7 @@ GameObject:
   - component: {fileID: 1974690668}
   - component: {fileID: 1974690671}
   m_Layer: 0
-  m_Name: "\xC1rvores Mata atla\u0302ntica background"
+  m_Name: nuvens background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1155,7 +1309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05e71f0776923414ea3ef82a3a1445b3, type: 2}
+  - {fileID: 2100000, guid: 98f10952bea23ca458e29f9627eca243, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1359,6 +1513,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 151150934}
   - {fileID: 1887851317}
+  - {fileID: 1797704891}
   - {fileID: 2003823074}
   - {fileID: 1974690667}
   - {fileID: 1820345749}
