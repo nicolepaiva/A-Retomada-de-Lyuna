@@ -593,7 +593,7 @@ MonoBehaviour:
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
   distancia: 0
-  aumentoDistancia: 10
+  aumentoDistancia: 30
 --- !u!4 &421791311
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,6 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a00b3b5ad7347479bb42712d825d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstObstacle: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
   objects:
   - prefab: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
     spawnChance: 0.99
