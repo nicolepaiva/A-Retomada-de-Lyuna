@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
@@ -10,10 +11,19 @@ public class SpawnerScript : MonoBehaviour
         public float spawnChance;
     }
 
+    public GameObject firstObstacle;
     public  SpawnableObject[] objects;
 
     public float minSpawnRate = 1f;
     public float maxSpawnRate = 2f;
+
+    private void Start()
+    {
+        for (int i = -5; i <= 25; i += 15) 
+        {
+            SpawnOne(new Vector3(i, 0, 0));
+        }
+    }
 
     private void OnEnable()
     {
@@ -27,6 +37,12 @@ public class SpawnerScript : MonoBehaviour
 
     private void Spawn()
     {
+        SpawnOne(transform.position);
+        Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
+    }
+
+    private void SpawnOne(Vector3 pos)
+    {
         float spawnChance = Random.value;
 
         foreach (var obj in objects)
@@ -34,11 +50,11 @@ public class SpawnerScript : MonoBehaviour
             if (spawnChance < obj.spawnChance)
             {
                 GameObject obstacle = Instantiate(obj.prefab);
-                obstacle.transform.position += transform.position;
+                obstacle.transform.position += pos;
                 break;
             }
             spawnChance -= obj.spawnChance;
         }
-        Invoke(nameof(Spawn), Random.Range(minSpawnRate, maxSpawnRate));
     }
+    
 }

@@ -33,7 +33,11 @@ public class LyunaScript : MonoBehaviour
         rigidBody.velocity = new Vector2(eixoX, rigidBody.velocity.y);
 
         if (jogadorEstaTocandoNoChao) {
-            objAnimator.Play("lyuna andando");
+            if (GameManager.Instance.gameSpeed != 0 || movimentoHorizontal != 0) {
+                objAnimator.Play("lyuna andando");
+            } else {
+                objAnimator.Play("lyuna parada");
+            }
         }
     }
 

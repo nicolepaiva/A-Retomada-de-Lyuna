@@ -7,7 +7,7 @@ public class ObstacleScript : MonoBehaviour
 
     private void Start()
     {
-        leftEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 2f;
+        leftEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 3f;
     }
     private void Update()
     {

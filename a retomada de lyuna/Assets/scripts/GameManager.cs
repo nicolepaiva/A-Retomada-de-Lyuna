@@ -67,9 +67,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         distancia += aumentoDistancia * Time.deltaTime;
-        if(distancia < 500){
+        if(distancia < 330){
             gameSpeed += gameSpeedIncrease * Time.deltaTime;
-        }else{
+        }else if (distancia < 500) {
+            spawner.enabled = false;
+        } else {
             gameSpeed = 0;
             aumentoDistancia = 0;
         }
