@@ -440,9 +440,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421791310}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: ResetScreenScript, Assembly-CSharp
+        m_MethodName: ResetTheGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -592,6 +592,8 @@ MonoBehaviour:
   <gameSpeed>k__BackingField: 0
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
+  distancia: 0
+  aumentoDistancia: 10
 --- !u!4 &421791311
 Transform:
   m_ObjectHideFlags: 0
@@ -618,6 +620,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -699,6 +702,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8e7754595bf6a4cae790231a24887a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623981710
 GameObject:
   m_ObjectHideFlags: 0
