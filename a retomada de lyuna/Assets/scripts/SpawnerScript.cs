@@ -11,7 +11,6 @@ public class SpawnerScript : MonoBehaviour
         public float spawnChance;
     }
 
-    public GameObject firstObstacle;
     public  SpawnableObject[] objects;
 
     public float minSpawnRate = 1f;

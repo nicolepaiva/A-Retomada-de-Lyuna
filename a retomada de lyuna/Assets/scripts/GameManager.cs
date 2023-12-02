@@ -6,20 +6,25 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [field: Header("Configurações de velocidade")]
+    public GameObject boss;
+
+    private bool chamouBoss = false;
+
+    [Header("Configurações de velocidade")]
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
-    [field: SerializeField] public float gameSpeed { get; private set; }
+    [SerializeField] public float gameSpeed { get; private set; }
 
+    [Header("UI")]
     public TextMeshProUGUI gameOverText;
     public Button retryButton;
 
     private LyunaScript lyuna;
     private SpawnerScript spawner;
 
+    [Header("Configurações de distância")]
     public float distancia = 0;
     public float aumentoDistancia = 1.0f;
-
 
     private void Awake()
     {
@@ -70,6 +75,10 @@ public class GameManager : MonoBehaviour
         if(distancia < 330){
             gameSpeed += gameSpeedIncrease * Time.deltaTime;
         }else if (distancia < 500) {
+            if (!chamouBoss) {
+                Instantiate(boss);
+                chamouBoss = true;
+            }
             spawner.enabled = false;
         } else {
             gameSpeed = 0;

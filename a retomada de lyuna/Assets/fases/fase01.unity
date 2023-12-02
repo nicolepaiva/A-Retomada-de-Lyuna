@@ -587,9 +587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2dc12b91fc56a49a02f0f4fda65aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 6832597513431543867, guid: 51f6eb72a64b7b54bb8aceb32d33d723, type: 3}
   initialGameSpeed: 6
   gameSpeedIncrease: 0.1
-  <gameSpeed>k__BackingField: 0
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
   distancia: 0
@@ -1225,7 +1225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a00b3b5ad7347479bb42712d825d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstObstacle: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
   objects:
   - prefab: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
     spawnChance: 0.5
