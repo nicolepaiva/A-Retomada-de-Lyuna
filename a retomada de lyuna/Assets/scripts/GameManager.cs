@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     private LyunaScript lyuna;
     private SpawnerScript spawner;
 
+    public float distancia = 0;
+    public float aumentoDistancia = 1.0f;
+
 
     private void Awake()
     {
@@ -43,17 +46,9 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        ObstacleScript[] obstacles = FindObjectsOfType<ObstacleScript>();
-
-        foreach (var obstacle in obstacles) {
-            Destroy(obstacle.gameObject);
-        }
-        
         gameSpeed = initialGameSpeed;
         enabled = true;
 
-        lyuna.gameObject.SetActive(true);
-        spawner.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
     }
@@ -71,6 +66,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        gameSpeed += gameSpeedIncrease * Time.deltaTime;
+        distancia += aumentoDistancia * Time.deltaTime;
+        if(distancia < 500){
+            gameSpeed += gameSpeedIncrease * Time.deltaTime;
+        }else{
+            gameSpeed = 0;
+            aumentoDistancia = 0;
+        }
     }
 }
