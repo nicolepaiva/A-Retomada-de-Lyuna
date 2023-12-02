@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1361537295
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3d655e15d8087e140a0d2785c5409e3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,7 +127,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -142,13 +142,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.7916667, y: 3.03125}
-      - {x: 2.4583335, y: 3.2708335}
-      - {x: 0.9166667, y: 3.3333335}
-      - {x: -0.4166667, y: 2.3645835}
-      - {x: -1.7395834, y: 1.0520834}
+    - - {x: 2.5825264, y: 2.6705804}
+      - {x: 2.2511315, y: 2.9707747}
+      - {x: 1.6220703, y: 3.204639}
+      - {x: 1.0216727, y: 3.1430097}
+      - {x: -0.25259462, y: 2.1217566}
+      - {x: -1.7920865, y: 0.6714362}
       - {x: -3.3020835, y: -1.40625}
       - {x: -0.4166667, y: -1.7604167}
-      - {x: 2.78125, y: 2.09375}
-      - {x: 2.9791667, y: 2.8020835}
+      - {x: 2.4774332, y: 2.0963879}
+      - {x: 2.6385376, y: 2.4427595}
   m_UseDelaunayMesh: 0

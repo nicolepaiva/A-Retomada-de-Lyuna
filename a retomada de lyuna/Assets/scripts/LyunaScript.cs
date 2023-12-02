@@ -43,6 +43,7 @@ public class LyunaScript : MonoBehaviour
 
         if (jogadorEstaTocandoNoChao) {
             if (Input.GetButtonDown("Jump")) {
+                Debug.Log("pulou");
                 rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
             }
         } else {
@@ -51,10 +52,12 @@ public class LyunaScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy")) {
-            
+        Debug.Log("colidiu com obstáculo");
+        if (other.CompareTag("Obstacle")) {
+            Debug.Log("sim é um obstáculo");
+            GameManager.Instance.GameOver();
         }
     }
 }
