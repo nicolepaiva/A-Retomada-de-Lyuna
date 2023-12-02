@@ -286,7 +286,7 @@ MonoBehaviour:
   objAnimator: {fileID: 151150938}
   velocidade: 5
   jogadorEstaTocandoNoChao: 0
-  alturaPulo: 12
+  alturaPulo: 10
   verificadorDeChao: {fileID: 84205621}
   tamanhoDoVerificadorDeChao: 0.1
   camadaDoChao:
@@ -1228,7 +1228,9 @@ MonoBehaviour:
   firstObstacle: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
   objects:
   - prefab: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
-    spawnChance: 0.99
+    spawnChance: 0.5
+  - prefab: {fileID: 2095159465042422468, guid: ee9c3004e137b75459bcca4f3c80a3d1, type: 3}
+    spawnChance: 0.45
   minSpawnRate: 2
   maxSpawnRate: 3
 --- !u!4 &2003823074

@@ -21,6 +21,12 @@ public class LyunaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.gameSpeed == 0){
+            velocidade = 12;
+        }else{
+            velocidade = 5;
+        }
+
         MovimentoJogador();
         PuloJogador();
     }
@@ -38,6 +44,18 @@ public class LyunaScript : MonoBehaviour
             } else {
                 objAnimator.Play("lyuna parada");
             }
+        }
+
+        if(GameManager.Instance.gameSpeed == 0){
+            velocidade = 12;
+        }else{
+            velocidade = 5;
+        }
+
+        if(movimentoHorizontal > 0 || GameManager.Instance.gameSpeed > 0){
+            transform.localScale = new Vector3(2.910543f,2.910543f,2.910543f);
+        }else if(movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0){
+            transform.localScale = new Vector3(-2.910543f,2.910543f,2.910543f);
         }
     }
 
