@@ -24,7 +24,7 @@ public class LyunaScript : MonoBehaviour
     void Update()
     {
         if(GameManager.Instance.gameSpeed == 0){
-            velocidade = 12;
+            velocidade = 8;
         }else{
             velocidade = 5;
         }
