@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ButtonControllerScript : MonoBehaviour
+public class DoubleButtonControllerScript : MonoBehaviour
 {
 
     [SerializeField] private Button botao;
@@ -16,7 +16,7 @@ public class ButtonControllerScript : MonoBehaviour
     void Update()
     {
         // Verifica se a tecla foi pressionada
-        if (Input.GetKey(teclaAtivacao) && !Input.GetKey(teclaAtivacao2)){
+        if (Input.GetKey(teclaAtivacao) && Input.GetKey(teclaAtivacao2)){
             // Seleciona e desseleciona o botão
             Debug.Log("apertou");
             if (botao != null) {
@@ -27,5 +27,5 @@ public class ButtonControllerScript : MonoBehaviour
             botaoAux.Select();
         }
     }
-
+    
 }
