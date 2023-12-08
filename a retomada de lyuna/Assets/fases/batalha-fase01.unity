@@ -269,7 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botao: {fileID: 36121805}
+  botaoAux: {fileID: 1096668494}
   teclaAtivacao: 122
+  teclaAtivacao2: 120
 --- !u!1 &70889796
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +573,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botao: {fileID: 338347869}
+  botaoAux: {fileID: 1096668494}
   teclaAtivacao: 120
+  teclaAtivacao2: 122
 --- !u!1 &1096668492
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +732,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7830189, g: 0.75430083, b: 0.631586, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -982,11 +986,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1774584250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10bdbe14b2cfd14438edfb135127fa9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b27151d0cc5a4f4a8557c7ddf9148aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botao: {fileID: 1774584252}
-  teclaAtivacao: 99
+  botaoAux: {fileID: 1096668494}
+  teclaAtivacao: 122
+  teclaAtivacao2: 120
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
