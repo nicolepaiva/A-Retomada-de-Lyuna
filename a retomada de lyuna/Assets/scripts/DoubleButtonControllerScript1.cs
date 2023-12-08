@@ -16,9 +16,9 @@ public class DoubleButtonControllerScript : MonoBehaviour
     void Update()
     {
         // Verifica se a tecla foi pressionada
-        if (Input.GetKey(teclaAtivacao) && Input.GetKey(teclaAtivacao2)){
+        if (Input.GetKeyDown(teclaAtivacao) && Input.GetKeyDown(teclaAtivacao2)){
             // Seleciona e desseleciona o botão
-            Debug.Log("apertou");
+            Debug.Log($"apertou {teclaAtivacao} e {teclaAtivacao2}");
             if (botao != null) {
                 botao.Select();
                 botao.onClick.Invoke();
