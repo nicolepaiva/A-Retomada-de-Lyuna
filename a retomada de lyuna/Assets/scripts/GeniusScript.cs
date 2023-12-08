@@ -25,11 +25,12 @@ public class Genius : MonoBehaviour
 
     public void Start()
     {
-        JogadaComputador();
+        //JogadaComputador();
     }
 
     private void JogadaComputador()
     {
+        Debug.Log("jogada computador");
         StartCoroutine(MostraSequencia());
     }
 
@@ -46,13 +47,19 @@ public class Genius : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }                
     }
+    private IEnumerator Sleep(float time){
+        yield return new WaitForSeconds(time);
+        botaoAux.Select();
+
+    }
 
     public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
-    {      
+    {   
+        StartCoroutine(Sleep(1f));
+        Debug.Log($"_botaoPressionado: {_botaoPressionado}");
         Debug.Log($"{_botaoPressionado} == {sequenciaComputador[indiceJogador]}?");  
         if(_botaoPressionado == sequenciaComputador[indiceJogador])
         {
-            Debug.Log("sim");
             indiceJogador++;
             if(indiceJogador >= sequenciaComputador.Count)
             {
@@ -70,6 +77,7 @@ public class Genius : MonoBehaviour
             sequenciaComputador.Clear();
             JogadaComputador();
         }
+
     }
 
 }
