@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private SpawnerScript spawner;
 
     [Header("Configurações de distância")]
-    public float distancia = 0;
+    public float distancia = 331;
     public float aumentoDistancia = 1.0f;
 
     private void Awake()
