@@ -665,6 +665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lyuna
       objectReference: {fileID: 0}
+    - target: {fileID: 6492670585839102423, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: alturaPulo
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1048,9 +1052,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - prefab: {fileID: 634869861467675610, guid: df3add0619b0254478810ed776fca450, type: 3}
+  - prefab: {fileID: 1551498293529268644, guid: dfcf2104ce75b714aa721eb139f6fdf7, type: 3}
     spawnChance: 0.5
-  - prefab: {fileID: 2095159465042422468, guid: ee9c3004e137b75459bcca4f3c80a3d1, type: 3}
+  - prefab: {fileID: 6911553999210854733, guid: f11840e895d28a841bba42d2c497f9d6, type: 3}
     spawnChance: 0.45
   minSpawnRate: 2
   maxSpawnRate: 3
