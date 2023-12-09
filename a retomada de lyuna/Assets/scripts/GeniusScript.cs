@@ -16,8 +16,9 @@ public class Genius : MonoBehaviour
     public float vidaDoInimigo = 10;
     private float tempoDaUltimaTecla0 = -1f;
     private float tempoDaUltimaTecla1 = -1f;
-    public float intervaloMax = 2f;
-
+    public float intervaloMax = 0.4f;
+    private float ultimoTempo0 = -1f;
+    private float ultimoTempo1 = -1f;
 
     void Update()
     {
@@ -25,33 +26,23 @@ public class Genius : MonoBehaviour
             tempoDaUltimaTecla0 = Time.time; //guarda quando Z foi pressionado
             Debug.Log("apertou Z");
             Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla0 - tempoDaUltimaTecla1}");
-            if (tempoDaUltimaTecla0 - tempoDaUltimaTecla1 <= intervaloMax) { //verifica quanto tempo faz desde que apertou X
-                //se intervalo <= intervalo máximo, então executa o double botão
-                botoes[2].Select();
-                botoes[2].onClick.Invoke();
-            } else {
-                //se intervalo > intervalo máximo, então executa Z
-                botoes[0].Select();
-                botoes[0].onClick.Invoke();
-            }
         }
 
         if (Input.GetKeyDown(teclaAtivacao1)) { //verifica se apertou X
             tempoDaUltimaTecla1 = Time.time; //guarda quando X foi pressionado
             Debug.Log("apertou X");
             Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
-            if (tempoDaUltimaTecla1 - tempoDaUltimaTecla0 <= intervaloMax) { //verifica quanto tempo faz desde que apertou Z
-                //se intervalo <= intervalo máximo, então executa o double botão
-                botoes[2].Select();
-                botoes[2].onClick.Invoke();
-            } else {
-                //se intervalo > intervalo máximo, então executa X
-                botoes[1].Select();
-                botoes[1].onClick.Invoke();
-            }
-
-
         }
+    }
+
+    private void OnEnable()
+    {
+        Invoke(nameof(AtivaBotao), intervaloMax); //testa o tempo entre as teclas apertadas pra decidir qual vai ser selecionada
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 
     public void Start()
@@ -62,6 +53,7 @@ public class Genius : MonoBehaviour
     private void JogadaComputador()
     {
         Debug.Log("jogada computador");
+        OnDisable();
         StartCoroutine(MostraSequencia());
     }
 
@@ -69,20 +61,15 @@ public class Genius : MonoBehaviour
     {
         sequenciaComputador.Add(Random.Range(0, 3));
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
             botoes[sequenciaComputador[i]].Select();
             yield return new WaitForSeconds(0.5f);
             botaoAux.Select();
             yield return new WaitForSeconds(0.2f);
-        }                
-    }
-
-    private IEnumerator Sleep(float time){
-        yield return new WaitForSeconds(time);
-        Debug.Log("zzzzzzzzzzzzzz");
-        botaoAux.Select();
+        }
+        OnEnable();                
     }
 
     public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
@@ -109,5 +96,30 @@ public class Genius : MonoBehaviour
             JogadaComputador();
         }
 
+    }
+
+    private void AtivaBotao()
+    {       
+        if (tempoDaUltimaTecla0 != ultimoTempo0 || tempoDaUltimaTecla1 != ultimoTempo1) { //verifica se algum mudou desde a última vez
+            Debug.Log("comparando tempos...");
+            ultimoTempo0 = tempoDaUltimaTecla0;
+            ultimoTempo1 = tempoDaUltimaTecla1;
+            if (tempoDaUltimaTecla0 - tempoDaUltimaTecla1 > intervaloMax) {
+                botoes[0].Select();
+                botoes[0].onClick.Invoke();
+            } else if (tempoDaUltimaTecla1 - tempoDaUltimaTecla0 > intervaloMax) {
+                botoes[1].Select();
+                botoes[1].onClick.Invoke();
+            } else {
+                botoes[2].Select();
+                botoes[2].onClick.Invoke();
+            }
+        }
+        Invoke(nameof(AtivaBotao), intervaloMax);
+    }
+
+    private IEnumerator Sleep(float time){
+        yield return new WaitForSeconds(time);
+        botaoAux.Select();
     }
 }

@@ -327,7 +327,7 @@ MonoBehaviour:
   teclaAtivacao0: 122
   teclaAtivacao1: 120
   vidaDoInimigo: 10
-  intervaloMax: 0.4
+  intervaloMax: 0.3
 --- !u!1 &230204707
 GameObject:
   m_ObjectHideFlags: 0
