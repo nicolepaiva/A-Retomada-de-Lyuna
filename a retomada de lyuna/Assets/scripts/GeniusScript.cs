@@ -9,11 +9,11 @@ public class Genius : MonoBehaviour
     [SerializeField] private Button botaoAux;
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
-
+    public VidaScript barra;
+    public float vidaDoInimigo = 0;
     public List<int> sequenciaComputador = new List<int>();
 
     private int indiceJogador = 0;
-    public float vidaDoInimigo = 10;
     private float tempoDaUltimaTecla0 = -1f;
     private float tempoDaUltimaTecla1 = -1f;
     public float intervaloMax = 0.4f;
@@ -89,6 +89,7 @@ public class Genius : MonoBehaviour
                 Debug.Log("acertou a sequência");
                 indiceJogador = 0;
                 vidaDoInimigo += 10;
+                barra.AlterarVida(vidaDoInimigo);
                 JogadaComputador();
             }
         }
@@ -97,6 +98,7 @@ public class Genius : MonoBehaviour
             Debug.Log("não: gameover");
             indiceJogador = 0;
             vidaDoInimigo = 0;
+            barra.AlterarVida(vidaDoInimigo);
             sequenciaComputador.Clear();
             JogadaComputador();
         }
