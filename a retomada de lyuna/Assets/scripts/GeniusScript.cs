@@ -9,14 +9,16 @@ public class Genius : MonoBehaviour
     [SerializeField] private Button botaoAux;
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
+    [SerializeField] private Image vidaAnimalImage;
+    [SerializeField] private barraDeVida barraDeVida;
 
     private List<int> sequenciaComputador = new List<int>();
-
     private int indiceJogador = 0;
-    public float vidaDoInimigo = 10;
+    public float vidaDoInimigoAtual = 0;
     private float tempoDaUltimaTecla0 = -1f;
     private float tempoDaUltimaTecla1 = -1f;
     public float intervaloMax = 2f;
+    public float inicio = 0;
 
 
     void Update()
@@ -56,7 +58,9 @@ public class Genius : MonoBehaviour
 
     public void Start()
     {
+       
         JogadaComputador();
+
     }
 
     private void JogadaComputador()
@@ -84,12 +88,13 @@ public class Genius : MonoBehaviour
         Debug.Log("zzzzzzzzzzzzzz");
         botaoAux.Select();
     }
-
+   
     public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
-    {   
+    { 
+        
         StartCoroutine(Sleep(0.3f));
         Debug.Log($"_botaoPressionado: {_botaoPressionado}");
-        Debug.Log($"{_botaoPressionado} == {sequenciaComputador[indiceJogador]}?");  
+        Debug.Log($"{_botaoPressionado} == {sequenciaComputador[indiceJogador]}?");
         if(_botaoPressionado == sequenciaComputador[indiceJogador])
         {
             indiceJogador++;
@@ -97,17 +102,18 @@ public class Genius : MonoBehaviour
             {
                 Debug.Log("acertou a sequência");
                 indiceJogador = 0;
-                vidaDoInimigo += 10;
+                
                 JogadaComputador();
             }
         }
         else
         {
             Debug.Log("não: gameover");
-            vidaDoInimigo = 0;
+            vidaDoInimigoAtual = 0;
             sequenciaComputador.Clear();
             JogadaComputador();
         }
 
     }
+   
 }
