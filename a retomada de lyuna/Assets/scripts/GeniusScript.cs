@@ -10,7 +10,7 @@ public class Genius : MonoBehaviour
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
 
-    private List<int> sequenciaComputador = new List<int>();
+    public List<int> sequenciaComputador = new List<int>();
 
     private int indiceJogador = 0;
     public float vidaDoInimigo = 10;
@@ -19,30 +19,33 @@ public class Genius : MonoBehaviour
     public float intervaloMax = 0.4f;
     private float ultimoTempo0 = -1f;
     private float ultimoTempo1 = -1f;
+    private bool computadorJogando = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(teclaAtivacao0)) { //verifica se apertou Z
-            tempoDaUltimaTecla0 = Time.time; //guarda quando Z foi pressionado
-            Debug.Log("apertou Z");
-            Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla0 - tempoDaUltimaTecla1}");
-        }
+        if (!computadorJogando) {
+            if (Input.GetKeyDown(teclaAtivacao0)) { //verifica se apertou Z
+                tempoDaUltimaTecla0 = Time.time; //guarda quando Z foi pressionado
+                Debug.Log("apertou Z");
+                Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla0 - tempoDaUltimaTecla1}");
+            }
 
-        if (Input.GetKeyDown(teclaAtivacao1)) { //verifica se apertou X
-            tempoDaUltimaTecla1 = Time.time; //guarda quando X foi pressionado
-            Debug.Log("apertou X");
-            Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
+            if (Input.GetKeyDown(teclaAtivacao1)) { //verifica se apertou X
+                tempoDaUltimaTecla1 = Time.time; //guarda quando X foi pressionado
+                Debug.Log("apertou X");
+                Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
+            }            
         }
     }
 
     private void OnEnable()
     {
-        Invoke(nameof(AtivaBotao), intervaloMax); //testa o tempo entre as teclas apertadas pra decidir qual vai ser selecionada
+        InvokeRepeating(nameof(AtivaBotao), 0, intervaloMax); //testa o tempo entre as teclas apertadas pra decidir qual vai ser selecionada
     }
 
     private void OnDisable()
     {
-        CancelInvoke();
+        CancelInvoke(nameof(AtivaBotao));
     }
 
     public void Start()
@@ -52,6 +55,7 @@ public class Genius : MonoBehaviour
 
     private void JogadaComputador()
     {
+        computadorJogando = true;
         Debug.Log("jogada computador");
         OnDisable();
         StartCoroutine(MostraSequencia());
@@ -69,14 +73,14 @@ public class Genius : MonoBehaviour
             botaoAux.Select();
             yield return new WaitForSeconds(0.2f);
         }
-        OnEnable();                
+        OnEnable();
+        computadorJogando = false;                
     }
 
     public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
     {   
         StartCoroutine(Sleep(0.3f));
-        Debug.Log($"_botaoPressionado: {_botaoPressionado}");
-        Debug.Log($"{_botaoPressionado} == {sequenciaComputador[indiceJogador]}?");  
+        Debug.Log($"_botaoPressionado: {_botaoPressionado}"); 
         if(_botaoPressionado == sequenciaComputador[indiceJogador])
         {
             indiceJogador++;
@@ -91,6 +95,7 @@ public class Genius : MonoBehaviour
         else
         {
             Debug.Log("não: gameover");
+            indiceJogador = 0;
             vidaDoInimigo = 0;
             sequenciaComputador.Clear();
             JogadaComputador();
@@ -115,7 +120,6 @@ public class Genius : MonoBehaviour
                 botoes[2].onClick.Invoke();
             }
         }
-        Invoke(nameof(AtivaBotao), intervaloMax);
     }
 
     private IEnumerator Sleep(float time){
