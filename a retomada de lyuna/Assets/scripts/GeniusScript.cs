@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Genius : MonoBehaviour
 {
     [SerializeField] private Button[] botoes;
@@ -11,6 +11,7 @@ public class Genius : MonoBehaviour
     [SerializeField] private KeyCode teclaAtivacao1;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
+    public string faseNova;
     public List<int> sequenciaComputador = new List<int>();
 
     private int indiceJogador = 0;
@@ -36,6 +37,11 @@ public class Genius : MonoBehaviour
                 Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
             }            
         }
+        
+    }
+     private void CarregarBatalha()
+    {
+        SceneManager.LoadScene(faseNova);
     }
 
     private void OnEnable()
@@ -88,9 +94,12 @@ public class Genius : MonoBehaviour
             {
                 Debug.Log("acertou a sequência");
                 indiceJogador = 0;
-                vidaDoInimigo += 10;
+                vidaDoInimigo += 50;
                 barra.AlterarVida(vidaDoInimigo);
                 JogadaComputador();
+                if(vidaDoInimigo >= 100){
+                    CarregarBatalha();
+                }
             }
         }
         else

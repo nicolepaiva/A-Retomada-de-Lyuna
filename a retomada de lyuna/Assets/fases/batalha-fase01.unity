@@ -308,6 +308,7 @@ MonoBehaviour:
   teclaAtivacao1: 120
   barra: {fileID: 1301827580}
   vidaDoInimigo: 10
+  faseNova: fase02
   sequenciaComputador: 
   intervaloMax: 0.3
 --- !u!1 &230204707

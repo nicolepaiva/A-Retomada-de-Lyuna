@@ -533,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492670585839102423, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: faseNova
-      value: fase01
+      value: batalha-fase01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
