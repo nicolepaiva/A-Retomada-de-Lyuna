@@ -85,7 +85,7 @@ public class Genius : MonoBehaviour
 
     public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
     {   
-        StartCoroutine(Sleep(0.3f));
+        StartCoroutine(Sleep(0.2f));
         Debug.Log($"_botaoPressionado: {_botaoPressionado}"); 
         if(_botaoPressionado == sequenciaComputador[indiceJogador])
         {
@@ -94,7 +94,7 @@ public class Genius : MonoBehaviour
             {
                 Debug.Log("acertou a sequência");
                 indiceJogador = 0;
-                vidaDoInimigo += 50;
+                vidaDoInimigo += 20;
                 barra.AlterarVida(vidaDoInimigo);
                 JogadaComputador();
                 if(vidaDoInimigo >= 100){
