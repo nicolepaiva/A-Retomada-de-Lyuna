@@ -76,8 +76,10 @@ public class LyunaScript : MonoBehaviour
 
     }
 
-    private void CarregarBatalha()
+    private IEnumerator CarregarBatalha()
     {
+        GameManager.Instance.EndingSceneTransition();
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
     }
 
@@ -89,7 +91,7 @@ public class LyunaScript : MonoBehaviour
             GameManager.Instance.GameOver();
         } else if (other.CompareTag("Enemy")) {
             Debug.Log("sim é um inimigo");
-            CarregarBatalha();
+            StartCoroutine(CarregarBatalha());
         }
     }
 }

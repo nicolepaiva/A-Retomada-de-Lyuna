@@ -18,7 +18,7 @@ public class SpawnerScript : MonoBehaviour
 
     private void Start()
     {
-        for (int i = -5; i <= 25; i += 15) 
+        for (int i = -5; i <= 10; i += 15) 
         {
             SpawnOne(new Vector3(i, 0, 0));
         }

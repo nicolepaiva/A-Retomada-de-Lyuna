@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Configurações de velocidade")]
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
-    [SerializeField] public float gameSpeed { get; private set; }
+    [SerializeField] public float gameSpeed = 0;
 
     [Header("UI")]
     public TextMeshProUGUI gameOverText;
@@ -25,6 +26,10 @@ public class GameManager : MonoBehaviour
     [Header("Configurações de distância")]
     public float distancia = 331;
     public float aumentoDistancia = 1.0f;
+
+    [Header("Transições")]
+    [SerializeField] private GameObject _startingSceneTransition;
+    [SerializeField] private GameObject _endingSceneTransition;
 
     private void Awake()
     {
@@ -43,19 +48,37 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        enabled = false;
+        Debug.Log("COMEÇOU");
+        _startingSceneTransition.SetActive(true);
+
         lyuna = FindObjectOfType<LyunaScript>();
         spawner = FindObjectOfType<SpawnerScript>();
 
-        NewGame();
+        StartCoroutine(NewGame());
     }
 
-    public void NewGame()
+    private void DisableStartingSceneTransition()
     {
-        gameSpeed = initialGameSpeed;
-        enabled = true;
+        _startingSceneTransition.SetActive(false);
+    }
 
+    public void EndingSceneTransition()
+    {
+        _endingSceneTransition.SetActive(true);
+
+    }
+
+    public IEnumerator NewGame()
+    {
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.5f);
+        DisableStartingSceneTransition();
+
+        gameSpeed = initialGameSpeed;
+        enabled = true;
     }
 
     public void GameOver()
