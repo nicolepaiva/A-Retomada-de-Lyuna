@@ -12,6 +12,7 @@ public class LyunaScript : MonoBehaviour
     [Header("Movimentação")]
     public float velocidade;
 
+
     [Header("Pulo")]
     public bool jogadorEstaTocandoNoChao;
     public float alturaPulo;
@@ -23,9 +24,12 @@ public class LyunaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.gameSpeed == 0){
+        if (GameManager.Instance.gameSpeed == 0)
+        {
             velocidade = 8;
-        }else{
+        }
+        else
+        {
             velocidade = 5;
         }
 
@@ -35,29 +39,39 @@ public class LyunaScript : MonoBehaviour
 
     private void MovimentoJogador()
     {
-        float movimentoHorizontal = Input.GetAxis("Horizontal"); 
+        float movimentoHorizontal = Input.GetAxis("Horizontal");
         float eixoX = movimentoHorizontal * velocidade;
 
         rigidBody.velocity = new Vector2(eixoX, rigidBody.velocity.y);
 
-        if (jogadorEstaTocandoNoChao) {
-            if (GameManager.Instance.gameSpeed != 0 || movimentoHorizontal != 0) {
+        if (jogadorEstaTocandoNoChao)
+        {
+            if (GameManager.Instance.gameSpeed != 0 || movimentoHorizontal != 0)
+            {
                 objAnimator.Play("lyuna andando");
-            } else {
+            }
+            else
+            {
                 objAnimator.Play("lyuna parada");
             }
         }
 
-        if(GameManager.Instance.gameSpeed == 0){
+        if (GameManager.Instance.gameSpeed == 0)
+        {
             velocidade = 12;
-        }else{
+        }
+        else
+        {
             velocidade = 5;
         }
 
-        if(movimentoHorizontal > 0 || GameManager.Instance.gameSpeed > 0){
-            transform.localScale = new Vector3(2.910543f,2.910543f,2.910543f);
-        }else if(movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0){
-            transform.localScale = new Vector3(-2.910543f,2.910543f,2.910543f);
+        if (movimentoHorizontal > 0 || GameManager.Instance.gameSpeed > 0)
+        {
+            transform.localScale = new Vector3(2.910543f, 2.910543f, 2.910543f);
+        }
+        else if (movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0)
+        {
+            transform.localScale = new Vector3(-2.910543f, 2.910543f, 2.910543f);
         }
     }
 
@@ -65,14 +79,18 @@ public class LyunaScript : MonoBehaviour
     {
         jogadorEstaTocandoNoChao = Physics2D.OverlapCircle(verificadorDeChao.position, tamanhoDoVerificadorDeChao, camadaDoChao);
 
-        if (jogadorEstaTocandoNoChao) {
-            if (Input.GetButtonDown("Jump")) {
+        if (jogadorEstaTocandoNoChao)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
                 Debug.Log("pulou");
                 rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
             }
-        } else {
+        }
+        else
+        {
             objAnimator.Play("lyuna pulando");
-         }
+        }
 
     }
 
@@ -84,12 +102,16 @@ public class LyunaScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("colidiu");
-        if (other.CompareTag("Obstacle")) {
+        if (other.CompareTag("Obstacle"))
+        {
             Debug.Log("sim é um obstáculo");
             GameManager.Instance.GameOver();
-        } else if (other.CompareTag("Enemy")) {
+        }
+        else if (other.CompareTag("Enemy"))
+        {
             Debug.Log("sim é um inimigo");
             CarregarBatalha();
         }
+       
     }
 }
