@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI gameOverText;
     public Button retryButton;
+    public GerenciadorDeDialogo iniciar;
 
     private LyunaScript lyuna;
     private SpawnerScript spawner;
@@ -33,16 +34,20 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) {
+        if (Instance == null)
+        {
             Instance = this;
-        } else {
+        }
+        else
+        {
             DestroyImmediate(gameObject);
         }
     }
 
     private void OnDestroy()
     {
-        if (Instance == this) {
+        if (Instance == this)
+        {
             Instance = null;
         }
     }
@@ -86,24 +91,35 @@ public class GameManager : MonoBehaviour
         gameSpeed = 0f;
         enabled = false;
 
-        lyuna.gameObject.SetActive(false);
-        spawner.gameObject.SetActive(false);
-        gameOverText.gameObject.SetActive(true);
-        retryButton.gameObject.SetActive(true);
+        
+        
+            lyuna.gameObject.SetActive(false);
+            spawner.gameObject.SetActive(false);
+            gameOverText.gameObject.SetActive(true);
+            retryButton.gameObject.SetActive(true);
+
+
     }
 
     private void Update()
     {
         distancia += aumentoDistancia * Time.deltaTime;
-        if(distancia < 330){
+        if (distancia < 330)
+        {
             gameSpeed += gameSpeedIncrease * Time.deltaTime;
-        }else if (distancia < 500) {
-            if (!chamouBoss) {
+        }
+        else if (distancia < 500)
+        {
+            if (!chamouBoss)
+            {
+                
                 Instantiate(boss);
                 chamouBoss = true;
             }
             spawner.enabled = false;
-        } else {
+        }
+        else
+        {
             gameSpeed = 0;
             aumentoDistancia = 0;
         }
