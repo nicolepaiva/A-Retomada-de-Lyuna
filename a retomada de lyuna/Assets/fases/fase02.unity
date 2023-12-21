@@ -358,6 +358,7 @@ MonoBehaviour:
   gameSpeed: 0
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
+  iniciar: {fileID: 0}
   distancia: 0
   aumentoDistancia: 30
   _startingSceneTransition: {fileID: 2039123682}
@@ -491,12 +492,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.17
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.47
+      value: -3.41
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -530,6 +543,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6475947072938871580, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_Name
       value: Lyuna
@@ -537,6 +554,22 @@ PrefabInstance:
     - target: {fileID: 6492670585839102423, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: faseNova
       value: batalha-fase02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Size.x
+      value: 3.511673
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Size.y
+      value: 22.091084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5813675
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.26407242
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

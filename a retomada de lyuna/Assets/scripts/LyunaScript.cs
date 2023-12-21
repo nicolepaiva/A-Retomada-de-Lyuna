@@ -67,11 +67,11 @@ public class LyunaScript : MonoBehaviour
 
         if (movimentoHorizontal > 0 || GameManager.Instance.gameSpeed > 0)
         {
-            transform.localScale = new Vector3(2.910543f, 2.910543f, 2.910543f);
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         }
         else if (movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0)
         {
-            transform.localScale = new Vector3(-2.910543f, 2.910543f, 2.910543f);
+            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         }
     }
 
