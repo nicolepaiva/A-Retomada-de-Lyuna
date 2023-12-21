@@ -1361,23 +1361,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.17
+      value: -17.88
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.75
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 3331139811771984308, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1427,6 +1427,30 @@ PrefabInstance:
       propertyPath: alturaPulo
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Size.x
+      value: 2.4545212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Size.y
+      value: 22.066929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8992729
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510442448089348821, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.27274895
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790050663124125369, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790050663124125369, guid: fc524ca08708cd244b4d462aa8ffc0c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1448,7 +1472,7 @@ GameObject:
   - component: {fileID: 1184745273}
   - component: {fileID: 1184745272}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: "transi\xE7\xE3o de cena"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2244,7 +2268,7 @@ GameObject:
   - component: {fileID: 2022508995}
   - component: {fileID: 2022508994}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ui game over
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
