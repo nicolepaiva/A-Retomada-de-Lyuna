@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -97,6 +98,7 @@ public class LyunaScript : MonoBehaviour
 
     private IEnumerator CarregarBatalha()
     {
+        Debug.Log("carregando batalha");
         GameManager.Instance.EndingSceneTransition();
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
@@ -113,6 +115,7 @@ public class LyunaScript : MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
+            Debug.Log(other.transform.localScale);
             Debug.Log("sim é um inimigo");
             StartCoroutine(CarregarBatalha());
         }

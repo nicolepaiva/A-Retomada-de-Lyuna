@@ -13,6 +13,9 @@ public class Genius : MonoBehaviour
     public float vidaDoInimigo = 0;
     public string faseNova;
     public List<int> sequenciaComputador = new List<int>();
+    [SerializeField] private GameObject _startingSceneTransition;
+    [SerializeField] private GameObject _endingSceneTransition;
+    [SerializeField] private Animator objAnimator;
 
     private int indiceJogador = 0;
     private float tempoDaUltimaTecla0 = -1f;
@@ -39,8 +42,11 @@ public class Genius : MonoBehaviour
         }
         
     }
-     private void CarregarBatalha()
+     private IEnumerator CarregarFase()
     {
+        yield return new WaitForSeconds(1.5f);
+        _endingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
     }
 
@@ -54,8 +60,13 @@ public class Genius : MonoBehaviour
         CancelInvoke(nameof(AtivaBotao));
     }
 
-    public void Start()
+    public IEnumerator Start()
     {
+        objAnimator.Play("animParada");
+        _startingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        _startingSceneTransition.SetActive(false);
+        objAnimator.Play("animBraba");
         JogadaComputador();
     }
 
@@ -98,7 +109,8 @@ public class Genius : MonoBehaviour
                 barra.AlterarVida(vidaDoInimigo);
                 JogadaComputador();
                 if(vidaDoInimigo >= 100){
-                    CarregarBatalha();
+                    objAnimator.Play("animParada");
+                    StartCoroutine(CarregarFase());
                 }
             }
         }
@@ -133,8 +145,10 @@ public class Genius : MonoBehaviour
         }
     }
 
-    private IEnumerator Sleep(float time){
+    private IEnumerator Sleep(float time)
+    {
         yield return new WaitForSeconds(time);
         botaoAux.Select();
     }
+
 }

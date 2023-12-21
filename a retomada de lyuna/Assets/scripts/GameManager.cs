@@ -79,11 +79,10 @@ public class GameManager : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1.5f);
-        DisableStartingSceneTransition();
-
+        yield return new WaitForSeconds(0.8f);
         gameSpeed = initialGameSpeed;
         enabled = true;
+        DisableStartingSceneTransition();
     }
 
     public void GameOver()
