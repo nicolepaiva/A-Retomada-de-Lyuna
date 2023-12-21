@@ -8,6 +8,7 @@ public class LyunaScript : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Animator objAnimator;
     public string faseNova;
+    
 
     [Header("Movimentação")]
     public float velocidade;
@@ -108,6 +109,7 @@ public class LyunaScript : MonoBehaviour
         {
             Debug.Log("sim é um obstáculo");
             GameManager.Instance.GameOver();
+            
         }
         else if (other.CompareTag("Enemy"))
         {

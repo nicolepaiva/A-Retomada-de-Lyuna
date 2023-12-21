@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI gameOverText;
     public Button retryButton;
-    public GerenciadorDeDialogo iniciar;
 
     private LyunaScript lyuna;
     private SpawnerScript spawner;
@@ -31,7 +30,8 @@ public class GameManager : MonoBehaviour
     [Header("Transições")]
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
-
+    
+    
     private void Awake()
     {
         if (Instance == null)
@@ -123,5 +123,7 @@ public class GameManager : MonoBehaviour
             gameSpeed = 0;
             aumentoDistancia = 0;
         }
+
+        
     }
 }
