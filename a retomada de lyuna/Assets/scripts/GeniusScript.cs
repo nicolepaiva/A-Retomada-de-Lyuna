@@ -44,7 +44,8 @@ public class Genius : MonoBehaviour
     }
      private IEnumerator CarregarFase()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
+        objAnimator.Play("animParadaMansa");
         _endingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
@@ -107,10 +108,11 @@ public class Genius : MonoBehaviour
                 indiceJogador = 0;
                 vidaDoInimigo += 20;
                 barra.AlterarVida(vidaDoInimigo);
-                JogadaComputador();
                 if(vidaDoInimigo >= 100){
-                    objAnimator.Play("animParada");
+                    objAnimator.Play("animMansa");
                     StartCoroutine(CarregarFase());
+                } else {
+                    JogadaComputador();
                 }
             }
         }
