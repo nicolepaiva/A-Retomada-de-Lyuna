@@ -25,6 +25,10 @@ public class Genius : MonoBehaviour
     private float ultimoTempo1 = -1f;
     private bool computadorJogando = false;
 
+    [Header("Efeitos Sonoros")]
+    public AudioSource audioSourceFlauta;
+    public AudioClip[] sonsFlauta;
+
     void Update()
     {
         if (!computadorJogando) {
@@ -87,6 +91,8 @@ public class Genius : MonoBehaviour
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
             botoes[sequenciaComputador[i]].Select();
+            audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
+            audioSourceFlauta.Play();
             yield return new WaitForSeconds(0.5f);
             botaoAux.Select();
             yield return new WaitForSeconds(0.2f);
@@ -137,12 +143,18 @@ public class Genius : MonoBehaviour
             if (tempoDaUltimaTecla0 - tempoDaUltimaTecla1 > intervaloMax) {
                 botoes[0].Select();
                 botoes[0].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[0];
+                audioSourceFlauta.Play();
             } else if (tempoDaUltimaTecla1 - tempoDaUltimaTecla0 > intervaloMax) {
                 botoes[1].Select();
                 botoes[1].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[1];
+                audioSourceFlauta.Play();
             } else {
                 botoes[2].Select();
                 botoes[2].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[2];
+                audioSourceFlauta.Play();
             }
         }
     }

@@ -315,6 +315,11 @@ MonoBehaviour:
   _endingSceneTransition: {fileID: 675633951}
   objAnimator: {fileID: 477087061}
   intervaloMax: 0.15
+  audioSourceFlauta: {fileID: 70889799}
+  sonsFlauta:
+  - {fileID: 8300000, guid: 9c1c1bd366252ea4f89299fcc3cb4069, type: 3}
+  - {fileID: 8300000, guid: 1c746e226dce3f444a39d55411a1d46d, type: 3}
+  - {fileID: 8300000, guid: a2c479a19cc80e54cbafa1bf0bd8c55a, type: 3}
 --- !u!82 &70889799
 AudioSource:
   m_ObjectHideFlags: 0
