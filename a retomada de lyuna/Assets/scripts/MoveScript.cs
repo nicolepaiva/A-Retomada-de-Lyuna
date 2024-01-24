@@ -1,5 +1,5 @@
 
-using UnityEditor.Timeline.Actions;
+using UnityEditor;
 using UnityEngine;
 
 public class MoveScript : MonoBehaviour

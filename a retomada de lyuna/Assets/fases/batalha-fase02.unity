@@ -373,7 +373,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 70889798}
         m_TargetAssemblyTypeName: Genius, Assembly-CSharp
         m_MethodName: JogadaJogador
         m_Mode: 3
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 70889798}
         m_TargetAssemblyTypeName: Genius, Assembly-CSharp
         m_MethodName: JogadaJogador
         m_Mode: 3
@@ -847,6 +847,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86983d76f696b7249bc2895d5398f320, type: 3}
+--- !u!1001 &1229514441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2319986030102519470, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: musicaDeFundo
+      value: 
+      objectReference: {fileID: 8300000, guid: 0720859e0d514b74bac0f5052d04644e, type: 3}
+    - target: {fileID: 3323807675383225990, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_Name
+      value: AudioController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 890.11395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 302.9943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -342.15768
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232913443326463103, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
 --- !u!1 &1247497521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 70889798}
         m_TargetAssemblyTypeName: Genius, Assembly-CSharp
         m_MethodName: JogadaJogador
         m_Mode: 3
@@ -1987,6 +2048,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1549626027}
   - {fileID: 70889797}
+  - {fileID: 1229514441}
   - {fileID: 1663179730}
   - {fileID: 1247497523}
   - {fileID: 2140810771}
