@@ -519,7 +519,7 @@ MonoBehaviour:
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
   distancia: 0
-  aumentoDistancia: 30
+  aumentoDistancia: 9
   _startingSceneTransition: {fileID: 1334000331}
   _endingSceneTransition: {fileID: 686774410}
 --- !u!4 &421791311

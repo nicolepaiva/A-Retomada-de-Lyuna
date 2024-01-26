@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private SpawnerScript spawner;
 
     [Header("Configurações de distância")]
-    public float distancia = 331;
+    public float distancia = 0;
     public float aumentoDistancia = 1.0f;
 
     [Header("Transições")]
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         distancia += aumentoDistancia * Time.deltaTime;
-        if (distancia < 330)
+        if (distancia < 468)
         {
             gameSpeed += gameSpeedIncrease * Time.deltaTime;
         }

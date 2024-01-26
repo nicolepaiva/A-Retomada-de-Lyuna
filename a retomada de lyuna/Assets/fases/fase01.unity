@@ -359,7 +359,7 @@ MonoBehaviour:
   gameOverText: {fileID: 623981712}
   retryButton: {fileID: 249343431}
   distancia: 0
-  aumentoDistancia: 30
+  aumentoDistancia: 9
   _startingSceneTransition: {fileID: 657787775}
   _endingSceneTransition: {fileID: 1614248361}
 --- !u!4 &421791311
@@ -690,8 +690,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d61c2cac9f49ddf4690ef719e23680de, type: 2}
-  m_sharedMaterial: {fileID: -5462206036082504064, guid: d61c2cac9f49ddf4690ef719e23680de, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e96226fe5bd51fd4fbc23845a5310fa0, type: 2}
+  m_sharedMaterial: {fileID: 6442687313096324721, guid: e96226fe5bd51fd4fbc23845a5310fa0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -715,8 +715,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 48
+  m_characterSpacing: 64.5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
