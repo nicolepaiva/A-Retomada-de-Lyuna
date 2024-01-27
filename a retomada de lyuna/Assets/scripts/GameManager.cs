@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     [Header("Transições")]
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
+
+    private bool deuGameOver = false;
     
     
     private void Awake()
@@ -88,41 +90,53 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameSpeed = 0f;
-        enabled = false;
-
         
-        
-            lyuna.gameObject.SetActive(false);
-            spawner.gameObject.SetActive(false);
-            gameOverText.gameObject.SetActive(true);
-            retryButton.gameObject.SetActive(true);
+        lyuna.gameObject.SetActive(false);
+        spawner.gameObject.SetActive(false);
+        gameOverText.gameObject.SetActive(true);
+        retryButton.gameObject.SetActive(true);
 
-
+        deuGameOver = true;
+        Debug.Log($"deu game over? {deuGameOver}");
     }
 
     private void Update()
     {
-        distancia += aumentoDistancia * Time.deltaTime;
-        if (distancia < 468)
+        Debug.Log("tá na tela de game over?");
+        if (!deuGameOver) 
         {
-            gameSpeed += gameSpeedIncrease * Time.deltaTime;
-        }
-        else if (distancia < 500)
-        {
-            if (!chamouBoss)
+            Debug.Log("não");
+            distancia += aumentoDistancia * Time.deltaTime;
+            if (distancia < 468)
             {
-                
-                Instantiate(boss);
-                chamouBoss = true;
+                gameSpeed += gameSpeedIncrease * Time.deltaTime;
             }
-            spawner.enabled = false;
+            else if (distancia < 500)
+            {
+                if (!chamouBoss)
+                {
+                    
+                    Instantiate(boss);
+                    chamouBoss = true;
+                }
+                spawner.enabled = false;
+            }
+            else
+            {
+                gameSpeed = 0;
+                aumentoDistancia = 0;
+            }
         }
-        else
+        else 
         {
-            gameSpeed = 0;
-            aumentoDistancia = 0;
-        }
-
-        
+            Debug.Log("sim");
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Debug.Log("apertou espaço");
+                retryButton.Select();
+            }
+            if (Input.GetKeyUp(KeyCode.Space)) {
+                retryButton.onClick.Invoke();
+            }
+        } 
     }
 }
