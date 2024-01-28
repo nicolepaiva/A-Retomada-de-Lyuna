@@ -178,7 +178,7 @@ MonoBehaviour:
   "caixaDi\xE1logo": {fileID: 4953540345182674451}
   barra: {fileID: 1605369117}
   vidaDoInimigo: 10
-  faseNova: fase02
+  faseNova: creditos
   sequenciaComputador: 
   _startingSceneTransition: {fileID: 8048743328240671166}
   _endingSceneTransition: {fileID: 1926774198}

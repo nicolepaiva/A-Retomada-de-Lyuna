@@ -483,60 +483,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
---- !u!1 &421791309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 421791311}
-  - component: {fileID: 421791310}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &421791310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421791309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d2dc12b91fc56a49a02f0f4fda65aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boss: {fileID: 1291720749670547163, guid: 7a743b152ccba3a428014f195b1ff6b9, type: 3}
-  initialGameSpeed: 6
-  gameSpeedIncrease: 0.1
-  gameSpeed: 0
-  gameOverText: {fileID: 623981712}
-  retryButton: {fileID: 249343431}
-  distancia: 0
-  aumentoDistancia: 9
-  _startingSceneTransition: {fileID: 1334000331}
-  _endingSceneTransition: {fileID: 5918632097605658073}
---- !u!4 &421791311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421791309}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46786404, y: -1.6641352, z: -4.6140943}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1348,23 @@ RectTransform:
   m_AnchoredPosition: {x: 580.8, y: -191.3}
   m_SizeDelta: {x: 1905, y: 1800}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1057879370816876084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5443417427582320123}
+  - component: {fileID: 3464342299730324042}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!95 &3171804941750175998
 Animator:
   serializedVersion: 5
@@ -1423,6 +1386,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3464342299730324042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057879370816876084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2dc12b91fc56a49a02f0f4fda65aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 1291720749670547163, guid: 7a743b152ccba3a428014f195b1ff6b9, type: 3}
+  initialGameSpeed: 6
+  gameSpeedIncrease: 0.1
+  gameSpeed: 0
+  gameOverText: {fileID: 623981712}
+  retryButton: {fileID: 249343431}
+  distancia: 0
+  aumentoDistancia: 9
+  _startingSceneTransition: {fileID: 1334000331}
+  _endingSceneTransition: {fileID: 5918632097605658073}
 --- !u!1001 &4366704811629553888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1537,6 +1522,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 250e519dcd1d7234face0af9ac0500cd, type: 3}
+--- !u!4 &5443417427582320123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057879370816876084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.46786404, y: -1.6641352, z: -4.6140943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5918632097605658073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1618,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 421791311}
+  - {fileID: 5443417427582320123}
   - {fileID: 360251503}
   - {fileID: 519420032}
   - {fileID: 4366704811629553888}

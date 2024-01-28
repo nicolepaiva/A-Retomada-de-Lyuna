@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/fases/batalha-fase02.unity
     guid: a9d61e9cc2adc014090d59317f364ba9
+  - enabled: 1
+    path: Assets/fases/creditos.unity
+    guid: 0eda47a907ce7b74ea8d7ac6b47b2765
   m_configObjects: {}
