@@ -18,7 +18,6 @@ public class DialogueSystem : MonoBehaviour
     bool finished = false;
 
     TypeTextAnimationScript typeText;
-    DialogueUI dialogueUI;
 
     STATE state;
 
@@ -26,7 +25,6 @@ public class DialogueSystem : MonoBehaviour
         typeText = FindObjectOfType<TypeTextAnimationScript>();
         typeText.TypeFinished = OnTypeFinished;
         geniusScript = FindObjectOfType<Genius>();
-        dialogueUI = FindObjectOfType<DialogueUI>();
     }
 
     void Start () {
