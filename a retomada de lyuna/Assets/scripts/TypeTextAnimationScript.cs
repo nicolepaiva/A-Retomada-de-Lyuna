@@ -8,7 +8,7 @@ public class TypeTextAnimationScript : MonoBehaviour
     public Action TypeFinished;
     public float typeDelay = 0.05f;
     public TMPro.TextMeshProUGUI textObject;
-    public TMPro.TextMeshProUGUI nameObject;
+    public TMPro.TextMeshProUGUI nomeObject;
     public string nome;
     public string fullText;
     Coroutine coroutine;
@@ -23,7 +23,7 @@ public class TypeTextAnimationScript : MonoBehaviour
     }
 
     public IEnumerator TypeText() {
-        nameObject.text = nome;
+        nomeObject.text = nome;
         textObject.text = fullText;
         textObject.maxVisibleCharacters = 0;
         for (int i = 0; i <= textObject.text.Length; i++) {

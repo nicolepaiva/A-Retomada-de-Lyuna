@@ -18,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
     bool finished = false;
 
     TypeTextAnimationScript typeText;
+    DialogueUI dialogueUI;
 
     STATE state;
 
@@ -25,6 +26,7 @@ public class DialogueSystem : MonoBehaviour
         typeText = FindObjectOfType<TypeTextAnimationScript>();
         typeText.TypeFinished = OnTypeFinished;
         geniusScript = FindObjectOfType<Genius>();
+        dialogueUI = FindObjectOfType<DialogueUI>();
     }
 
     void Start () {
@@ -45,7 +47,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public void Next() {
-        typeText.nome = dialogueData.talkScript[currentText++].name;
+        typeText.nome = dialogueData.talkScript[currentText].name;
         typeText.fullText = dialogueData.talkScript[currentText++].text;
         if(currentText == dialogueData.talkScript.Count) finished = true;
         typeText.StartTyping();

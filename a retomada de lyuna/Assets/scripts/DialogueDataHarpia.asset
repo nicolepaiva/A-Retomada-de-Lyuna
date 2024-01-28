@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a409e5c4a4bf44c9a37110f6e2fcca, type: 3}
   m_Name: DialogueDataHarpia
   m_EditorClassIdentifier: 
-  talkScript: []
+  talkScript:
+  - name: Harpia
+    text: "Bem vinda, guerreira Lyuna! Pude observar todo o seu esfor\xE7o nessa
+      jornada para reequilibrar o mundo."
+  - name: Harpia
+    text: "Muito obrigado por me salvar... e por sua coragem e bravura, se tornar\xE1
+      como uma de n\xF3s."
+  - name: Lyuna
+    text: "KAIMEN! Os anci\xF5es sempre contavam hist\xF3rias de guerreiras valentes
+      que eram presenteadas com a gra\xE7a dos ancestrais  por sua bravura."
+  - name: Harpia
+    text: "Tenha cuidado no seu pr\xF3ximo destino, s\xF3 poucos guerreiros da antiguidade
+      puderam cumprir com essa jornada. Boa sorte!"
