@@ -9,6 +9,8 @@ public class Genius : MonoBehaviour
     [SerializeField] private Button botaoAux;
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
+
+    public GameObject caixaDiálogo;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
     public string faseNova;
@@ -29,6 +31,13 @@ public class Genius : MonoBehaviour
     public AudioSource audioSourceFlauta;
     public AudioClip[] sonsFlauta;
 
+    DialogueSystem dialogueSystem;
+
+    void Awake()
+    {
+        dialogueSystem = FindObjectOfType<DialogueSystem>();
+    }
+
     void Update()
     {
         if (!computadorJogando) {
@@ -44,11 +53,10 @@ public class Genius : MonoBehaviour
                 Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
             }            
         }
-        
     }
-     private IEnumerator CarregarFase()
+     public IEnumerator CarregarFase()
     {
-        yield return new WaitForSeconds(3f);
+        caixaDiálogo.SetActive(false);
         objAnimator.Play("animParadaMansa");
         _endingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -116,7 +124,9 @@ public class Genius : MonoBehaviour
                 barra.AlterarVida(vidaDoInimigo);
                 if(vidaDoInimigo >= 100){
                     objAnimator.Play("animMansa");
-                    StartCoroutine(CarregarFase());
+                    caixaDiálogo.SetActive(true);
+                    dialogueSystem.Next();
+                    OnDisable();
                 } else {
                     JogadaComputador();
                 }

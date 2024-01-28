@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum STATE {
     DISABLED,
@@ -11,6 +12,7 @@ public enum STATE {
 public class DialogueSystem : MonoBehaviour
 {
     public DialogueData dialogueData;
+    public Genius geniusScript;
 
     int currentText = 0;
     bool finished = false;
@@ -20,7 +22,9 @@ public class DialogueSystem : MonoBehaviour
     STATE state;
 
     void Awake() {
-        typeText = FindObjectOfType<TypeTextAnimationScript>;
+        typeText = FindObjectOfType<TypeTextAnimationScript>();
+        typeText.TypeFinished = OnTypeFinished;
+        geniusScript = FindObjectOfType<Genius>();
     }
 
     void Start () {
@@ -41,17 +45,35 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public void Next() {
+        typeText.nome = dialogueData.talkScript[currentText++].name;
         typeText.fullText = dialogueData.talkScript[currentText++].text;
         if(currentText == dialogueData.talkScript.Count) finished = true;
         typeText.StartTyping();
         state = STATE.TYPING;
     }
 
-    void Waiting() {
+    void OnTypeFinished() {
+        state = STATE.WAITING;
+    }
 
+    void Waiting() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (!finished) {
+                Next();
+            } else {
+                state = STATE.DISABLED;
+                currentText = 0;
+                finished = false;
+                Debug.Log("Carregando fase...");
+                StartCoroutine(geniusScript.CarregarFase());
+            }
+        }
     }
 
     void Typing() {
-
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            typeText.Skip();
+            state = STATE.WAITING;
+        }
     }
 }
