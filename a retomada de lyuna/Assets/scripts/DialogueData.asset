@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a409e5c4a4bf44c9a37110f6e2fcca, type: 3}
+  m_Name: DialogueData
+  m_EditorClassIdentifier: 
+  talkScript:
+  - name: Cobra Grande
+    text: "Ol\xE1, jovem guerreira. Muito obrigada por me salvar! Tenho ouvido hist\xF3rias
+      sobre os seus feitos de bravura por toda floresta."
+  - name: Lyuna
+    text: Kaimen!
+  - name: Cobra Grande
+    text: "Voc\xEA ainda enfrentar\xE1 muitos desafios em sua jornada, por\xE9m n\xE3o
+      temas: n\xF3s, animais, estaremos aqui para te ajudar."
+  - name: Lyuna
+    text: "KAIMEN! Assim como meus ancestrais irei desbravar o desconhecido e cumprir
+      minha miss\xE3o. Muito obrigada."
