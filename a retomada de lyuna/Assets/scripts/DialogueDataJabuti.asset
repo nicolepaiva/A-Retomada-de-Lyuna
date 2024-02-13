@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a409e5c4a4bf44c9a37110f6e2fcca, type: 3}
+  m_Name: DialogueDataJabuti
+  m_EditorClassIdentifier: 
+  talkScript:
+  - name: "Xam\xE3 Jabuti"
+    text: "Guerreira Lyuna, filha do sagrado, estou muito preocupado com o desequil\xEDbrio
+      que est\xE1 ocorrendo com os 4 elementos nos 4 territ\xF3rios."
+  - name: "Xam\xE3 Jabuti"
+    text: "Voc\xEA \xE9 a escolhida para levar a flauta sagrada passando pelos nossos
+      biomas at\xE9 chegar ao territ\xF3rio Amaz\xF4nia. "
+  - name: "Xam\xE3 Jabuti"
+    text: "No caminho, a flauta ser\xE1 muito \xFAtil para voc\xEA, fa\xE7a bom uso, 
+      com conhecimento. Nela estar\xE3o Makunaima e Exu, auxiliando em sua jornada."
+  - name: Lyuna
+    text: "Aceito a miss\xE3o de levar a sagrada flauta para seu destino. KAIMEN!"
