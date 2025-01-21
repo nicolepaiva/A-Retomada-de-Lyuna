@@ -26,15 +26,6 @@ public class LyunaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.gameSpeed == 0)
-        {
-            velocidade = 8;
-        }
-        else
-        {
-            velocidade = 5;
-        }
-
         MovimentoJogador();
         PuloJogador();
     }

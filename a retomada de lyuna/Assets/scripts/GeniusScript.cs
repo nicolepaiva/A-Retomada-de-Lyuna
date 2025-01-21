@@ -7,6 +7,8 @@ public class Genius : MonoBehaviour
 {
     [SerializeField] private Button[] botoes;
     [SerializeField] private Button botaoAux;
+    [SerializeField] private Button botaoMobile0;
+    [SerializeField] private Button botaoMobile1;
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
 
@@ -20,11 +22,8 @@ public class Genius : MonoBehaviour
     [SerializeField] private Animator objAnimator;
 
     private int indiceJogador = 0;
-    private float tempoDaUltimaTecla0 = -1f;
-    private float tempoDaUltimaTecla1 = -1f;
-    public float intervaloMax = 0.4f;
-    private float ultimoTempo0 = -1f;
-    private float ultimoTempo1 = -1f;
+    private float tempoDaUltimaTecla01 = -1f;
+    [SerializeField] private float intervaloMin = 0.3f;
     private bool computadorJogando = false;
 
     [Header("Efeitos Sonoros")]
@@ -41,36 +40,32 @@ public class Genius : MonoBehaviour
     void Update()
     {
         if (!computadorJogando) {
-            if (Input.GetKeyDown(teclaAtivacao0)) { //verifica se apertou Z
-                tempoDaUltimaTecla0 = Time.time; //guarda quando Z foi pressionado
-                Debug.Log("apertou Z");
-                Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla0 - tempoDaUltimaTecla1}");
-            }
-
-            if (Input.GetKeyDown(teclaAtivacao1)) { //verifica se apertou X
-                tempoDaUltimaTecla1 = Time.time; //guarda quando X foi pressionado
-                Debug.Log("apertou X");
-                Debug.Log($"intervalo desde a última tecla: {tempoDaUltimaTecla1 - tempoDaUltimaTecla0}");
-            }            
+            if ((Input.GetKey(teclaAtivacao0) && Input.GetKeyDown(teclaAtivacao1)) || (Input.GetKeyDown(teclaAtivacao0) && Input.GetKey(teclaAtivacao1))) { //verifica se apertou Z e X
+                tempoDaUltimaTecla01 = Time.time;
+                botoes[2].Select();
+                botoes[2].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[2];
+                audioSourceFlauta.Play();
+            } else if (Input.GetKeyUp(teclaAtivacao0) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou Z
+                botoes[0].Select();
+                botoes[0].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[0];
+                audioSourceFlauta.Play();
+            } else if (Input.GetKeyUp(teclaAtivacao1) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou X
+                botoes[1].Select();
+                botoes[1].onClick.Invoke();
+                audioSourceFlauta.clip = sonsFlauta[1];
+                audioSourceFlauta.Play();
+            }          
         }
     }
-     public IEnumerator CarregarFase()
+    public IEnumerator CarregarFase()
     {
         caixaDiálogo.SetActive(false);
         objAnimator.Play("animParadaMansa");
         _endingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
-    }
-
-    private void OnEnable()
-    {
-        InvokeRepeating(nameof(AtivaBotao), 0, intervaloMax); //testa o tempo entre as teclas apertadas pra decidir qual vai ser selecionada
-    }
-
-    private void OnDisable()
-    {
-        CancelInvoke(nameof(AtivaBotao));
     }
 
     public IEnumerator Start()
@@ -87,7 +82,6 @@ public class Genius : MonoBehaviour
     {
         computadorJogando = true;
         Debug.Log("jogada computador");
-        OnDisable();
         StartCoroutine(MostraSequencia());
     }
 
@@ -105,15 +99,14 @@ public class Genius : MonoBehaviour
             botaoAux.Select();
             yield return new WaitForSeconds(0.2f);
         }
-        OnEnable();
         computadorJogando = false;                
     }
 
-    public void JogadaJogador(int _botaoPressionado) //0 = azul | 1 = amarelo | 2 = laranja | 3 = verde
-    {   
+    public void JogadaJogador(int _notaTocada) //0 = vermelho | 1 = azul | 2 = vermelho + azul
+    {     
         StartCoroutine(Sleep(0.2f));
-        Debug.Log($"_botaoPressionado: {_botaoPressionado}"); 
-        if(_botaoPressionado == sequenciaComputador[indiceJogador])
+        Debug.Log($"_botaoPressionado: {_notaTocada}"); 
+        if(_notaTocada == sequenciaComputador[indiceJogador])
         {
             indiceJogador++;
             if(indiceJogador >= sequenciaComputador.Count)
@@ -126,7 +119,6 @@ public class Genius : MonoBehaviour
                     objAnimator.Play("animMansa");
                     caixaDiálogo.SetActive(true);
                     dialogueSystem.Next();
-                    OnDisable();
                 } else {
                     JogadaComputador();
                 }
@@ -140,32 +132,6 @@ public class Genius : MonoBehaviour
             barra.AlterarVida(vidaDoInimigo);
             sequenciaComputador.Clear();
             JogadaComputador();
-        }
-
-    }
-
-    private void AtivaBotao()
-    {       
-        if (tempoDaUltimaTecla0 != ultimoTempo0 || tempoDaUltimaTecla1 != ultimoTempo1) { //verifica se algum mudou desde a última vez
-            Debug.Log("comparando tempos...");
-            ultimoTempo0 = tempoDaUltimaTecla0;
-            ultimoTempo1 = tempoDaUltimaTecla1;
-            if (tempoDaUltimaTecla0 - tempoDaUltimaTecla1 > intervaloMax) {
-                botoes[0].Select();
-                botoes[0].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[0];
-                audioSourceFlauta.Play();
-            } else if (tempoDaUltimaTecla1 - tempoDaUltimaTecla0 > intervaloMax) {
-                botoes[1].Select();
-                botoes[1].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[1];
-                audioSourceFlauta.Play();
-            } else {
-                botoes[2].Select();
-                botoes[2].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[2];
-                audioSourceFlauta.Play();
-            }
         }
     }
 
