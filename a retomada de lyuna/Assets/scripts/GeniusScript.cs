@@ -1,3 +1,4 @@
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,23 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Genius : MonoBehaviour
 {
+    // private float timeLeftTouchEnded;
+    // private float timeRightTouchEnded;
+    private bool temEsquerda = false;
+    private bool temDireita = false;
+    // public TextMeshProUGUI infoLeft;
+    // public TextMeshProUGUI infoRight;
     [SerializeField] private Button[] botoes;
     [SerializeField] private Button botaoAux;
     [SerializeField] private Button botaoMobile0;
     [SerializeField] private Button botaoMobile1;
     [SerializeField] private KeyCode teclaAtivacao0;
     [SerializeField] private KeyCode teclaAtivacao1;
+    private Touch touchLeft;
+    private Touch touchRight;
+    private Touch theTouch;
+
+    private float screenWidth;
 
     public GameObject caixaDiálogo;
     public VidaScript barra;
@@ -40,23 +52,77 @@ public class Genius : MonoBehaviour
     void Update()
     {
         if (!computadorJogando) {
-            if ((Input.GetKey(teclaAtivacao0) && Input.GetKeyDown(teclaAtivacao1)) || (Input.GetKeyDown(teclaAtivacao0) && Input.GetKey(teclaAtivacao1))) { //verifica se apertou Z e X
-                tempoDaUltimaTecla01 = Time.time;
-                botoes[2].Select();
-                botoes[2].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[2];
-                audioSourceFlauta.Play();
-            } else if (Input.GetKeyUp(teclaAtivacao0) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou Z
-                botoes[0].Select();
-                botoes[0].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[0];
-                audioSourceFlauta.Play();
-            } else if (Input.GetKeyUp(teclaAtivacao1) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou X
-                botoes[1].Select();
-                botoes[1].onClick.Invoke();
-                audioSourceFlauta.clip = sonsFlauta[1];
-                audioSourceFlauta.Play();
-            }          
+            if (Input.touchCount > 0) {
+                for (int i = 0; i < Input.touchCount; i++) {
+                    theTouch = Input.GetTouch(i);
+                    if (theTouch.position.x < screenWidth/2) {
+                        touchLeft = theTouch;
+                        temEsquerda = true;
+                    } else {
+                        touchRight = theTouch;
+                        temDireita = true;
+                    }
+                }
+
+                // if (touchLeft.phase == TouchPhase.Ended) {
+                //     phaseDisplayText.text = theTouch.phase.ToString();
+                //     timeTouchEnded = Time.time;
+                // } else if (Time.time - timeTouchEnded > displayTime) {
+                //     phaseDisplayText.text = theTouch.phase.ToString();
+                //     timeTouchEnded = Time.time;
+                // }
+            
+                if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
+                    tempoDaUltimaTecla01 = Time.time;
+                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    Debug.Log("vc apertou dois botões");
+                    botoes[2].Select();
+                    botoes[2].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[2];
+                    audioSourceFlauta.Play();
+                    touchLeft.phase = TouchPhase.Canceled;
+                    touchRight.phase = TouchPhase.Canceled;
+                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                } else if (touchLeft.phase == TouchPhase.Ended && Time.time - tempoDaUltimaTecla01 > intervaloMin) { //verifica se apertou do lado esquerd0
+                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    Debug.Log("vc apertou esquerda");
+                    botoes[0].Select();
+                    botoes[0].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[0];
+                    audioSourceFlauta.Play();
+                    touchLeft.phase = TouchPhase.Canceled;
+                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                } else if (touchRight.phase == TouchPhase.Ended && Time.time - tempoDaUltimaTecla01 > intervaloMin) { //verifica se apertou do lado direito
+                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    Debug.Log("vc apertou direita");
+                    botoes[1].Select();
+                    botoes[1].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[1];
+                    audioSourceFlauta.Play();
+                    touchRight.phase = TouchPhase.Canceled;
+                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                } 
+            }
+
+            temEsquerda = false;
+            temDireita = false;
+            // if ((Input.GetKey(teclaAtivacao0) && Input.GetKeyDown(teclaAtivacao1)) || (Input.GetKeyDown(teclaAtivacao0) && Input.GetKey(teclaAtivacao1))) { //verifica se apertou Z e X
+            //     tempoDaUltimaTecla01 = Time.time;
+            //     botoes[2].Select();
+            //     botoes[2].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[2];
+            //     audioSourceFlauta.Play();
+            // } else if (Input.GetKeyUp(teclaAtivacao0) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou Z
+            //     botoes[0].Select();
+            //     botoes[0].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[0];
+            //     audioSourceFlauta.Play();
+            // } else if (Input.GetKeyUp(teclaAtivacao1) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou X
+            //     botoes[1].Select();
+            //     botoes[1].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[1];
+            //     audioSourceFlauta.Play();
+            // }          
         }
     }
     public IEnumerator CarregarFase()
@@ -70,6 +136,7 @@ public class Genius : MonoBehaviour
 
     public IEnumerator Start()
     {
+        screenWidth = Screen.width;
         objAnimator.Play("animParada");
         _startingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -135,6 +202,10 @@ public class Genius : MonoBehaviour
         }
     }
 
+    public void DesativarBotao () {
+        Debug.Log("desativar botao");
+        botaoAux.Select();
+    }
     private IEnumerator Sleep(float time)
     {
         yield return new WaitForSeconds(time);
