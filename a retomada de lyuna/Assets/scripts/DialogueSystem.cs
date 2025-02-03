@@ -45,10 +45,12 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public void Next() {
+        Debug.Log("NEXT");
         typeText.nome = dialogueData.talkScript[currentText].name;
         typeText.fullText = dialogueData.talkScript[currentText++].text;
         if(currentText == dialogueData.talkScript.Count) finished = true;
         typeText.StartTyping();
+        StartCoroutine(Sleep(0.2f));
         state = STATE.TYPING;
     }
 
@@ -56,24 +58,33 @@ public class DialogueSystem : MonoBehaviour
         state = STATE.WAITING;
     }
 
+    private IEnumerator Sleep(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
     void Waiting() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            if (!finished) {
-                Next();
-            } else {
-                state = STATE.DISABLED;
-                currentText = 0;
-                finished = false;
-                Debug.Log("Carregando fase...");
-                StartCoroutine(geniusScript.CarregarFase());
+        if (Input.touchCount > 0) {
+            if (Input.GetTouch(0).phase == TouchPhase.Began) {
+                if (!finished) {
+                    Next();
+                } else {
+                    state = STATE.DISABLED;
+                    currentText = 0;
+                    finished = false;
+                    Debug.Log("Carregando fase...");
+                    // StartCoroutine(geniusScript.CarregarFase());
+                }
             }
         }
     }
 
     void Typing() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            typeText.Skip();
-            state = STATE.WAITING;
+        if (Input.touchCount > 0) {
+            if (Input.GetTouch(0).phase == TouchPhase.Began) {
+                typeText.Skip();
+                state = STATE.WAITING;
+            }
         }
     }
 }
