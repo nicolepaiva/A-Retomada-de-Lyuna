@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
 
+    public Button btnJump;
+
     private bool deuGameOver = false;
     
     
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        btnJump.gameObject.SetActive(true);
         enabled = false;
         Debug.Log("COMEÇOU");
         _startingSceneTransition.SetActive(true);
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NewGame()
     {
+        btnJump.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
 
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         gameSpeed = 0f;
         
         lyuna.gameObject.SetActive(false);
+        btnJump.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
@@ -102,10 +107,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("tá na tela de game over?");
+        //Debug.Log("tá na tela de game over?");
         if (!deuGameOver) 
         {
-            Debug.Log("não");
+            //Debug.Log("não");
             distancia += aumentoDistancia * Time.deltaTime;
             if (distancia < 468)
             {
@@ -129,7 +134,7 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            Debug.Log("sim");
+           // Debug.Log("sim");
             if (Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("apertou espaço");
                 retryButton.Select();
