@@ -9,7 +9,7 @@ public class LyunaScript : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Animator objAnimator;
     public string faseNova;
-
+    
 
     [Header("Movimentação")]
     public float velocidade;
@@ -27,7 +27,7 @@ public class LyunaScript : MonoBehaviour
     void Update()
     {
         MovimentoJogador();
-        //PuloJogador();
+        PuloJogador();
     }
 
     private void MovimentoJogador()
@@ -66,35 +66,19 @@ public class LyunaScript : MonoBehaviour
         {
             transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
         }
-
-        jogadorEstaTocandoNoChao = Physics2D.OverlapCircle(verificadorDeChao.position, tamanhoDoVerificadorDeChao, camadaDoChao);
     }
 
     private void PuloJogador()
     {
+        jogadorEstaTocandoNoChao = Physics2D.OverlapCircle(verificadorDeChao.position, tamanhoDoVerificadorDeChao, camadaDoChao);
+
         if (jogadorEstaTocandoNoChao)
         {
-            if (Input.GetButtonDown("Jump") || (Input.GetButtonDown("Fire1")))
+            if (Input.GetButtonDown("Jump"))
             {
                 Debug.Log("pulou");
                 rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
             }
-        }
-        else
-        {
-            objAnimator.Play("lyuna pulando");
-        }
-
-    }
-
-    public void Saltar()
-    {
-        if (jogadorEstaTocandoNoChao)
-        {
-            Debug.Log("btn_saltar");
-
-            rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
-
         }
         else
         {
@@ -118,7 +102,7 @@ public class LyunaScript : MonoBehaviour
         {
             Debug.Log("sim é um obstáculo");
             GameManager.Instance.GameOver();
-
+            
         }
         else if (other.CompareTag("Enemy"))
         {
@@ -126,6 +110,6 @@ public class LyunaScript : MonoBehaviour
             Debug.Log("sim é um inimigo");
             StartCoroutine(CarregarBatalha());
         }
-
+       
     }
 }
