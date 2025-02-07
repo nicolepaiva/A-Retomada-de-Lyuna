@@ -25,15 +25,6 @@ public class LyunaScript : MonoBehaviour
     public float tamanhoDoVerificadorDeChao;
     public LayerMask camadaDoChao;
 
-
-    public float GetHorizontalInput()
-    {
-        float input = 0f;
-        if (ButtonAndarPressed) input += 1f;
-
-        return input;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,7 +40,11 @@ public class LyunaScript : MonoBehaviour
         float botaoInput = MobileInputManager.Instance.GetHorizontalInput();
         Vector3 movimento = new Vector3(botaoInput, 0f, 0f) * velocidade * Time.deltaTime;
         transform.Translate(movimento);
-
+        if(botaoInput > 0)
+        {
+            objAnimator.SetBool("andando", true);
+            objAnimator.SetBool("idle", false);
+        }
     }
 
     private void MovimentoJogador()
@@ -63,13 +58,20 @@ public class LyunaScript : MonoBehaviour
         {
             if (GameManager.Instance.gameSpeed != 0 || movimentoHorizontal != 0)
             {
-                objAnimator.Play("lyuna andando");
+                objAnimator.SetBool("idle", false);
+                objAnimator.SetBool("andando", true);
             }
             else
             {
-                objAnimator.Play("lyuna parada");
+                objAnimator.SetBool("idle", true);
+                objAnimator.SetBool("andando", false);
             }
+            objAnimator.SetBool("pulando", false);
+        } else
+        {
+            objAnimator.SetBool("pulando", true);
         }
+
 
         if (GameManager.Instance.gameSpeed == 0)
         {
@@ -86,6 +88,7 @@ public class LyunaScript : MonoBehaviour
         }
         else if (movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0)
         {
+            objAnimator.SetBool("idle", true);
             transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
         }
     }
@@ -114,12 +117,8 @@ public class LyunaScript : MonoBehaviour
         if (jogadorEstaTocandoNoChao)
         {
             rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
+            objAnimator.SetBool("pulando", true);
         }
-        else
-        {
-            objAnimator.Play("lyuna pulando");
-        }
-
     }
 
     private IEnumerator CarregarBatalha()
