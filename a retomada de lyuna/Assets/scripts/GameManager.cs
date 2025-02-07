@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI gameOverText;
     public Button retryButton;
+    public Button jumpButton;
+    public Button andarButton;
 
     private LyunaScript lyuna;
     private SpawnerScript spawner;
@@ -62,6 +64,8 @@ public class GameManager : MonoBehaviour
         lyuna = FindObjectOfType<LyunaScript>();
         spawner = FindObjectOfType<SpawnerScript>();
 
+        jumpButton.gameObject.SetActive(true);
+        andarButton.gameObject.SetActive(false);
         StartCoroutine(NewGame());
     }
 
@@ -84,18 +88,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         gameSpeed = initialGameSpeed;
         enabled = true;
+        jumpButton.gameObject.SetActive(true);
         DisableStartingSceneTransition();
+        andarButton.gameObject.SetActive(false);
     }
 
     public void GameOver()
     {
         gameSpeed = 0f;
-        
+        jumpButton.gameObject.SetActive(false);
         lyuna.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
-
+        andarButton.gameObject.SetActive(false);
         deuGameOver = true;
         Debug.Log($"deu game over? {deuGameOver}");
     }
@@ -118,6 +124,7 @@ public class GameManager : MonoBehaviour
                     
                     Instantiate(boss);
                     chamouBoss = true;
+                    
                 }
                 spawner.enabled = false;
             }
@@ -125,6 +132,8 @@ public class GameManager : MonoBehaviour
             {
                 gameSpeed = 0;
                 aumentoDistancia = 0;
+                jumpButton.gameObject.SetActive(false);
+                andarButton.gameObject.SetActive(true);
             }
         }
         else 

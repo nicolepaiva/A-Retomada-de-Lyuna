@@ -20,14 +20,36 @@ public class LyunaScript : MonoBehaviour
     public float alturaPulo;
     public Transform verificadorDeChao;
 
+    public bool ButtonAndarPressed = false;
+
     public float tamanhoDoVerificadorDeChao;
     public LayerMask camadaDoChao;
+
+
+    public float GetHorizontalInput()
+    {
+        float input = 0f;
+        if (ButtonAndarPressed) input += 1f;
+
+        return input;
+    }
 
     // Update is called once per frame
     void Update()
     {
         MovimentoJogador();
-        PuloJogador();
+        andarBtn();
+
+        jogadorEstaTocandoNoChao = Physics2D.OverlapCircle(verificadorDeChao.position, tamanhoDoVerificadorDeChao, camadaDoChao);
+        //PuloJogador();
+    }
+
+    public void andarBtn()
+    {
+        float botaoInput = MobileInputManager.Instance.GetHorizontalInput();
+        Vector3 movimento = new Vector3(botaoInput, 0f, 0f) * velocidade * Time.deltaTime;
+        transform.Translate(movimento);
+
     }
 
     private void MovimentoJogador()
@@ -79,6 +101,19 @@ public class LyunaScript : MonoBehaviour
                 Debug.Log("pulou");
                 rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
             }
+        }
+        else
+        {
+            objAnimator.Play("lyuna pulando");
+        }
+
+    }
+
+    public void JumpWithButton()
+    {
+        if (jogadorEstaTocandoNoChao)
+        {
+            rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
         }
         else
         {
