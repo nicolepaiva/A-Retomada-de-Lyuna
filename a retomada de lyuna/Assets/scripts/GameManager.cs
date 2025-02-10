@@ -103,15 +103,15 @@ public class GameManager : MonoBehaviour
         retryButton.gameObject.SetActive(true);
         andarButton.gameObject.SetActive(false);
         deuGameOver = true;
-        Debug.Log($"deu game over? {deuGameOver}");
+        //Debug.Log($"deu game over? {deuGameOver}");
     }
 
     private void Update()
     {
-        Debug.Log("tá na tela de game over?");
+        //Debug.Log("tá na tela de game over?");
         if (!deuGameOver) 
         {
-            Debug.Log("não");
+           // Debug.Log("não");
             distancia += aumentoDistancia * Time.deltaTime;
             if (distancia < 468)
             {
@@ -138,9 +138,9 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            Debug.Log("sim");
+            //Debug.Log("sim");
             if (Input.GetKeyDown(KeyCode.Space)) {
-                Debug.Log("apertou espaço");
+               // Debug.Log("apertou espaço");
                 retryButton.Select();
             }
             if (Input.GetKeyUp(KeyCode.Space)) {
