@@ -21,7 +21,7 @@ public class Genius : MonoBehaviour
     public GameObject caixaDiálogo;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
-    // public string faseNova;
+    public string faseNova;
     public List<int> sequenciaComputador = new List<int>();
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
@@ -94,14 +94,14 @@ public class Genius : MonoBehaviour
             temDireita = false;        
         }
     }
-    // public IEnumerator CarregarFase()
-    // {
-    //     caixaDiálogo.SetActive(false);
-    //     objAnimator.Play("animParadaMansa");
-    //     _endingSceneTransition.SetActive(true);
-    //     yield return new WaitForSeconds(1.5f);
-    //     SceneManager.LoadScene(faseNova);
-    // }
+    public IEnumerator CarregarFase()
+    {
+        caixaDiálogo.SetActive(false);
+        objAnimator.Play("animParadaMansa");
+        _endingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(faseNova);
+    }
 
     public IEnumerator Start()
     {
