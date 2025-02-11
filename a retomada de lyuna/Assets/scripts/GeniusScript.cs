@@ -6,12 +6,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Genius : MonoBehaviour
 {
+    // private float timeLeftTouchEnded;
+    // private float timeRightTouchEnded;
     private bool temEsquerda = false;
     private bool temDireita = false;
+    // public TextMeshProUGUI infoLeft;
+    // public TextMeshProUGUI infoRight;
     [SerializeField] private Button[] botoes;
     [SerializeField] private Button botaoAux;
-    [SerializeField] private Button leftButton;
-    [SerializeField] private Button rightButton;
+    [SerializeField] private Button botaoMobile0;
+    [SerializeField] private Button botaoMobile1;
+    [SerializeField] private KeyCode teclaAtivacao0;
+    [SerializeField] private KeyCode teclaAtivacao1;
     private Touch touchLeft;
     private Touch touchRight;
     private Touch theTouch;
@@ -21,7 +27,7 @@ public class Genius : MonoBehaviour
     public GameObject caixaDiálogo;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
-    // public string faseNova;
+    public string faseNova;
     public List<int> sequenciaComputador = new List<int>();
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
@@ -57,6 +63,14 @@ public class Genius : MonoBehaviour
                         temDireita = true;
                     }
                 }
+
+                // if (touchLeft.phase == TouchPhase.Ended) {
+                //     phaseDisplayText.text = theTouch.phase.ToString();
+                //     timeTouchEnded = Time.time;
+                // } else if (Time.time - timeTouchEnded > displayTime) {
+                //     phaseDisplayText.text = theTouch.phase.ToString();
+                //     timeTouchEnded = Time.time;
+                // }
             
                 if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
                     tempoDaUltimaTecla01 = Time.time;
@@ -91,17 +105,34 @@ public class Genius : MonoBehaviour
             }
 
             temEsquerda = false;
-            temDireita = false;        
+            temDireita = false;
+            // if ((Input.GetKey(teclaAtivacao0) && Input.GetKeyDown(teclaAtivacao1)) || (Input.GetKeyDown(teclaAtivacao0) && Input.GetKey(teclaAtivacao1))) { //verifica se apertou Z e X
+            //     tempoDaUltimaTecla01 = Time.time;
+            //     botoes[2].Select();
+            //     botoes[2].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[2];
+            //     audioSourceFlauta.Play();
+            // } else if (Input.GetKeyUp(teclaAtivacao0) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou Z
+            //     botoes[0].Select();
+            //     botoes[0].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[0];
+            //     audioSourceFlauta.Play();
+            // } else if (Input.GetKeyUp(teclaAtivacao1) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou X
+            //     botoes[1].Select();
+            //     botoes[1].onClick.Invoke();
+            //     audioSourceFlauta.clip = sonsFlauta[1];
+            //     audioSourceFlauta.Play();
+            // }          
         }
     }
-    // public IEnumerator CarregarFase()
-    // {
-    //     caixaDiálogo.SetActive(false);
-    //     objAnimator.Play("animParadaMansa");
-    //     _endingSceneTransition.SetActive(true);
-    //     yield return new WaitForSeconds(1.5f);
-    //     SceneManager.LoadScene(faseNova);
-    // }
+    public IEnumerator CarregarFase()
+    {
+        caixaDiálogo.SetActive(false);
+        objAnimator.Play("animParadaMansa");
+        _endingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(faseNova);
+    }
 
     public IEnumerator Start()
     {
@@ -139,7 +170,8 @@ public class Genius : MonoBehaviour
     }
 
     public void JogadaJogador(int _notaTocada) //0 = vermelho | 1 = azul | 2 = vermelho + azul
-    {     
+    {
+
         StartCoroutine(Sleep(0.2f));
         Debug.Log($"_botaoPressionado: {_notaTocada}"); 
         if(_notaTocada == sequenciaComputador[indiceJogador])
@@ -155,9 +187,6 @@ public class Genius : MonoBehaviour
                     objAnimator.Play("animMansa");
                     caixaDiálogo.SetActive(true);
                     dialogueSystem.Next();
-                    computadorJogando = true;
-                    leftButton.gameObject.SetActive(false);
-                    rightButton.gameObject.SetActive(false);
                 } else {
                     JogadaComputador();
                 }

@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lyuna pulando
-  m_Speed: 1
+  m_Speed: 0.15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7117599276198793545}
@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4367caee9de5bbc48987664993bf7d2b, type: 2}
+  m_Motion: {fileID: 7400000, guid: ac1fb222c4fa46548934d36343496663, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -126,7 +126,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lyuna andando
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2909322536464407648}
@@ -140,7 +140,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0b0a16100d5390e40ba43e0e8a10b77f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7cad3fa256bea0640b48210b64750e91, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -210,7 +210,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 7326056666612678501}
-    m_Position: {x: 50, y: 250, z: 0}
+    m_Position: {x: 70, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2145267025096232630}
     m_Position: {x: 290, y: 80, z: 0}
@@ -302,7 +302,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1f6a7db7a6ca5304c8f5fe229eaf1d39, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3696a3d1b72a95540ba7daa021adc053, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

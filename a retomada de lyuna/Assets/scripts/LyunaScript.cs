@@ -93,12 +93,12 @@ public class LyunaScript : MonoBehaviour
 
         if (movimentoHorizontal > 0 || GameManager.Instance.gameSpeed > 0)
         {
-            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            //transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
         }
         else if (movimentoHorizontal < 0 && GameManager.Instance.gameSpeed == 0)
         {
             objAnimator.SetBool("idle", true);
-            transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+            //transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
         }
     }
     public void JumpWithButton()
