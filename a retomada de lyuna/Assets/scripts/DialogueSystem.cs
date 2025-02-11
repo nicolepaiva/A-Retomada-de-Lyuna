@@ -73,7 +73,7 @@ public class DialogueSystem : MonoBehaviour
                     currentText = 0;
                     finished = false;
                     Debug.Log("Carregando fase...");
-                    // StartCoroutine(geniusScript.CarregarFase());
+                    StartCoroutine(geniusScript.CarregarFase());
                 }
             }
         }
