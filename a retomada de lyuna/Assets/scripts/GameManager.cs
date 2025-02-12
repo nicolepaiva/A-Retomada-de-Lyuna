@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public float gameSpeed = 0;
 
     [Header("UI")]
-    public TextMeshProUGUI gameOverText;
-    public Button retryButton;
+    public GameObject painelGameOver;
+    //public TextMeshProUGUI gameOverText;
+    //public Button retryButton;
+
+
     public Button jumpButton;
     public Button andarButton;
 
@@ -82,8 +85,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NewGame()
     {
-        gameOverText.gameObject.SetActive(false);
-        retryButton.gameObject.SetActive(false);
+        painelGameOver.SetActive(false);
+        //gameOverText.gameObject.SetActive(false);
+        //retryButton.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(0.8f);
         gameSpeed = initialGameSpeed;
@@ -99,8 +103,9 @@ public class GameManager : MonoBehaviour
         jumpButton.gameObject.SetActive(false);
         lyuna.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
-        gameOverText.gameObject.SetActive(true);
-        retryButton.gameObject.SetActive(true);
+        painelGameOver.SetActive(true);
+        //gameOverText.gameObject.SetActive(true);
+        //retryButton.gameObject.SetActive(true);
         andarButton.gameObject.SetActive(false);
         deuGameOver = true;
         //Debug.Log($"deu game over? {deuGameOver}");
@@ -138,14 +143,15 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
+            // Remover controles PC
             //Debug.Log("sim");
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            //if (Input.GetKeyDown(KeyCode.Space)) {
                // Debug.Log("apertou espaço");
-                retryButton.Select();
-            }
-            if (Input.GetKeyUp(KeyCode.Space)) {
-                retryButton.onClick.Invoke();
-            }
+                //retryButton.Select();
+            //}
+            //if (Input.GetKeyUp(KeyCode.Space)) {
+                //retryButton.onClick.Invoke();
+            //}
         } 
     }
 }
