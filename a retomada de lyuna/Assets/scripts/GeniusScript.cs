@@ -19,6 +19,8 @@ public class Genius : MonoBehaviour
     private float screenWidth;
 
     public GameObject caixaDiálogo;
+    public GameObject flautaFrente;
+    public GameObject barraVidaObjeto;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
     public string faseNova;
@@ -28,8 +30,6 @@ public class Genius : MonoBehaviour
     [SerializeField] private Animator objAnimator;
 
     private int indiceJogador = 0;
-    private float tempoDaUltimaTecla01 = -1f;
-    [SerializeField] private float intervaloMin = 0.3f;
     private bool computadorJogando = false;
 
     [Header("Efeitos Sonoros")]
@@ -51,64 +51,49 @@ public class Genius : MonoBehaviour
                     theTouch = Input.GetTouch(i);
                     if (theTouch.position.x < screenWidth/2) {
                         touchLeft = theTouch;
-                        temEsquerda = true;
+                        if (touchLeft.phase == TouchPhase.Began) {
+                            temEsquerda = true;
+                        }
                     } else {
                         touchRight = theTouch;
-                        temDireita = true;
+                        if (touchRight.phase == TouchPhase.Began) {
+                            temDireita = true;
+                        }
                     }
                 }
             
                 if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
-                    tempoDaUltimaTecla01 = Time.time;
                     Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                     Debug.Log("vc apertou dois botões");
+                    temEsquerda = false;
+                    temDireita = false;
                     botoes[2].Select();
                     botoes[2].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[2];
                     audioSourceFlauta.Play();
-                    touchLeft.phase = TouchPhase.Canceled;
-                    touchRight.phase = TouchPhase.Canceled;
                     Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
-                } else if (touchLeft.phase == TouchPhase.Ended && Time.time - tempoDaUltimaTecla01 > intervaloMin) { //verifica se apertou do lado esquerd0
+                } else if (temEsquerda && touchLeft.phase == TouchPhase.Ended) { //verifica se apertou do lado esquerdo
                     Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                     Debug.Log("vc apertou esquerda");
+                    temEsquerda = false;
+                    temDireita = false;
                     botoes[0].Select();
                     botoes[0].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[0];
                     audioSourceFlauta.Play();
-                    touchLeft.phase = TouchPhase.Canceled;
                     Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
-                } else if (touchRight.phase == TouchPhase.Ended && Time.time - tempoDaUltimaTecla01 > intervaloMin) { //verifica se apertou do lado direito
+                } else if (temDireita && touchRight.phase == TouchPhase.Ended) { //verifica se apertou do lado direito
                     Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                     Debug.Log("vc apertou direita");
+                    temEsquerda = false;
+                    temDireita = false;
                     botoes[1].Select();
                     botoes[1].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[1];
                     audioSourceFlauta.Play();
-                    touchRight.phase = TouchPhase.Canceled;
                     Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                 } 
-            }
-
-            temEsquerda = false;
-            temDireita = false;
-            // if ((Input.GetKey(teclaAtivacao0) && Input.GetKeyDown(teclaAtivacao1)) || (Input.GetKeyDown(teclaAtivacao0) && Input.GetKey(teclaAtivacao1))) { //verifica se apertou Z e X
-            //     tempoDaUltimaTecla01 = Time.time;
-            //     botoes[2].Select();
-            //     botoes[2].onClick.Invoke();
-            //     audioSourceFlauta.clip = sonsFlauta[2];
-            //     audioSourceFlauta.Play();
-            // } else if (Input.GetKeyUp(teclaAtivacao0) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou Z
-            //     botoes[0].Select();
-            //     botoes[0].onClick.Invoke();
-            //     audioSourceFlauta.clip = sonsFlauta[0];
-            //     audioSourceFlauta.Play();
-            // } else if (Input.GetKeyUp(teclaAtivacao1) && (Time.time - tempoDaUltimaTecla01 > intervaloMin)) { //verifica se apertou X
-            //     botoes[1].Select();
-            //     botoes[1].onClick.Invoke();
-            //     audioSourceFlauta.clip = sonsFlauta[1];
-            //     audioSourceFlauta.Play();
-            // }          
+            }     
         }
     }
     public IEnumerator CarregarFase()
@@ -140,6 +125,12 @@ public class Genius : MonoBehaviour
     {
         sequenciaComputador.Add(Random.Range(0, 3));
 
+        string exibirSequencia = "sequência: ";
+        foreach (var x in sequenciaComputador) {
+            exibirSequencia += x.ToString() + " - ";
+        }
+        Debug.Log(exibirSequencia);
+
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
@@ -169,9 +160,10 @@ public class Genius : MonoBehaviour
                 barra.AlterarVida(vidaDoInimigo);
                 if(vidaDoInimigo >= 100){
                     objAnimator.Play("animHarpiaIdleMansa");
+                    computadorJogando = true;
+                    flautaFrente.SetActive(false);
                     caixaDiálogo.SetActive(true);
                     dialogueSystem.Next();
-                    computadorJogando = true;
                     leftButton.gameObject.SetActive(false);
                     rightButton.gameObject.SetActive(false);
                 } else {
