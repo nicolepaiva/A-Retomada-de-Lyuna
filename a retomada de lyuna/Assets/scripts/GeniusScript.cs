@@ -6,18 +6,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Genius : MonoBehaviour
 {
-    // private float timeLeftTouchEnded;
-    // private float timeRightTouchEnded;
     private bool temEsquerda = false;
     private bool temDireita = false;
-    // public TextMeshProUGUI infoLeft;
-    // public TextMeshProUGUI infoRight;
     [SerializeField] private Button[] botoes;
     [SerializeField] private Button botaoAux;
-    [SerializeField] private Button botaoMobile0;
-    [SerializeField] private Button botaoMobile1;
-    [SerializeField] private KeyCode teclaAtivacao0;
-    [SerializeField] private KeyCode teclaAtivacao1;
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
     private Touch touchLeft;
     private Touch touchRight;
     private Touch theTouch;
@@ -63,14 +57,6 @@ public class Genius : MonoBehaviour
                         temDireita = true;
                     }
                 }
-
-                // if (touchLeft.phase == TouchPhase.Ended) {
-                //     phaseDisplayText.text = theTouch.phase.ToString();
-                //     timeTouchEnded = Time.time;
-                // } else if (Time.time - timeTouchEnded > displayTime) {
-                //     phaseDisplayText.text = theTouch.phase.ToString();
-                //     timeTouchEnded = Time.time;
-                // }
             
                 if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
                     tempoDaUltimaTecla01 = Time.time;
@@ -128,7 +114,6 @@ public class Genius : MonoBehaviour
     public IEnumerator CarregarFase()
     {
         caixaDiálogo.SetActive(false);
-        objAnimator.Play("animParadaMansa");
         _endingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
@@ -137,11 +122,10 @@ public class Genius : MonoBehaviour
     public IEnumerator Start()
     {
         screenWidth = Screen.width;
-        objAnimator.Play("animParada");
         _startingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         _startingSceneTransition.SetActive(false);
-        objAnimator.Play("animBraba");
+        objAnimator.Play("animHarpiaVooBraba");
         JogadaComputador();
     }
 
@@ -184,9 +168,12 @@ public class Genius : MonoBehaviour
                 vidaDoInimigo += 20;
                 barra.AlterarVida(vidaDoInimigo);
                 if(vidaDoInimigo >= 100){
-                    objAnimator.Play("animMansa");
+                    objAnimator.Play("animHarpiaIdleMansa");
                     caixaDiálogo.SetActive(true);
                     dialogueSystem.Next();
+                    computadorJogando = true;
+                    leftButton.gameObject.SetActive(false);
+                    rightButton.gameObject.SetActive(false);
                 } else {
                     JogadaComputador();
                 }
@@ -203,10 +190,6 @@ public class Genius : MonoBehaviour
         }
     }
 
-    public void DesativarBotao () {
-        Debug.Log("desativar botao");
-        botaoAux.Select();
-    }
     private IEnumerator Sleep(float time)
     {
         yield return new WaitForSeconds(time);
