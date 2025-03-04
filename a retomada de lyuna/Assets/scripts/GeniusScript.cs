@@ -1,4 +1,3 @@
-using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +27,8 @@ public class Genius : MonoBehaviour
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
     [SerializeField] private Animator objAnimator;
+    [SerializeField] private GameObject animCanaime;
+    [SerializeField] private GameObject animMakunaima;
 
     private int indiceJogador = 0;
     private bool computadorJogando = false;
@@ -63,35 +64,34 @@ public class Genius : MonoBehaviour
                 }
             
                 if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
-                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
-                    Debug.Log("vc apertou dois botões");
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou dois botões");
                     temEsquerda = false;
                     temDireita = false;
                     botoes[2].Select();
                     botoes[2].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[2];
                     audioSourceFlauta.Play();
-                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                 } else if (temEsquerda && touchLeft.phase == TouchPhase.Ended) { //verifica se apertou do lado esquerdo
-                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
-                    Debug.Log("vc apertou esquerda");
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou esquerda");
                     temEsquerda = false;
                     temDireita = false;
                     botoes[0].Select();
+                    StartCoroutine(AnimacaoFlauta(animMakunaima));
                     botoes[0].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[0];
                     audioSourceFlauta.Play();
-                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                 } else if (temDireita && touchRight.phase == TouchPhase.Ended) { //verifica se apertou do lado direito
-                    Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
-                    Debug.Log("vc apertou direita");
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou direita");
                     temEsquerda = false;
                     temDireita = false;
                     botoes[1].Select();
+                    StartCoroutine(AnimacaoFlauta(animCanaime));
                     botoes[1].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[1];
                     audioSourceFlauta.Play();
-                    Debug.Log("CANCELADOS? touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                 } 
             }     
         }
@@ -106,6 +106,7 @@ public class Genius : MonoBehaviour
 
     public IEnumerator Start()
     {
+        Debug.Log($"computadorJogando = {computadorJogando}");
         screenWidth = Screen.width;
         _startingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -117,7 +118,8 @@ public class Genius : MonoBehaviour
     private void JogadaComputador()
     {
         computadorJogando = true;
-        Debug.Log("jogada computador");
+        Debug.Log($"computadorJogando = {computadorJogando}");
+        // Debug.Log("jogada computador");
         StartCoroutine(MostraSequencia());
     }
 
@@ -135,32 +137,47 @@ public class Genius : MonoBehaviour
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
             botoes[sequenciaComputador[i]].Select();
+            switch (sequenciaComputador[i])
+            {
+            case 0:
+                StartCoroutine(AnimacaoFlauta(animMakunaima));
+                break;
+            case 1:
+                StartCoroutine(AnimacaoFlauta(animCanaime));
+                break;
+            case 2:
+                break;
+            }
+            computadorJogando = true;
+            Debug.Log($"computadorJogando = {computadorJogando}");
             audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
             audioSourceFlauta.Play();
             yield return new WaitForSeconds(0.5f);
             botaoAux.Select();
             yield return new WaitForSeconds(0.2f);
         }
-        computadorJogando = false;                
+        computadorJogando = false;
+        Debug.Log($"computadorJogando = {computadorJogando}");                
     }
 
     public void JogadaJogador(int _notaTocada) //0 = vermelho | 1 = azul | 2 = vermelho + azul
     {
 
         StartCoroutine(Sleep(0.2f));
-        Debug.Log($"_botaoPressionado: {_notaTocada}"); 
+        // Debug.Log($"_botaoPressionado: {_notaTocada}"); 
         if(_notaTocada == sequenciaComputador[indiceJogador])
         {
             indiceJogador++;
             if(indiceJogador >= sequenciaComputador.Count)
             {
-                Debug.Log("acertou a sequência");
+                // Debug.Log("acertou a sequência");
                 indiceJogador = 0;
                 vidaDoInimigo += 20;
                 barra.AlterarVida(vidaDoInimigo);
                 if(vidaDoInimigo >= 100){
                     objAnimator.Play("animHarpiaIdleMansa");
                     computadorJogando = true;
+                    Debug.Log($"computadorJogando = {computadorJogando}");
                     flautaFrente.SetActive(false);
                     caixaDiálogo.SetActive(true);
                     dialogueSystem.Next();
@@ -173,13 +190,24 @@ public class Genius : MonoBehaviour
         }
         else
         {
-            Debug.Log("não: gameover");
+            // Debug.Log("não: gameover");
             indiceJogador = 0;
             vidaDoInimigo = 0;
             barra.AlterarVida(vidaDoInimigo);
             sequenciaComputador.Clear();
             JogadaComputador();
         }
+    }
+
+    private IEnumerator AnimacaoFlauta(GameObject anim)
+    {
+        computadorJogando = true;
+        Debug.Log($"computadorJogando = {computadorJogando}");
+        anim.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        computadorJogando = false;
+        Debug.Log($"computadorJogando = {computadorJogando}");
+        anim.SetActive(false);
     }
 
     private IEnumerator Sleep(float time)
