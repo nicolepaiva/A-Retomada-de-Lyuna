@@ -77,7 +77,6 @@ public class Genius : MonoBehaviour
                     // Debug.Log("vc apertou esquerda");
                     temEsquerda = false;
                     temDireita = false;
-                    botoes[0].Select();
                     Instantiate(animMakunaima);
                     botoes[0].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[0];
@@ -87,7 +86,6 @@ public class Genius : MonoBehaviour
                     // Debug.Log("vc apertou direita");
                     temEsquerda = false;
                     temDireita = false;
-                    botoes[1].Select();
                     Instantiate(animCanaime);
                     botoes[1].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[1];
@@ -137,17 +135,17 @@ public class Genius : MonoBehaviour
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
             botoes[sequenciaComputador[i]].Select();
-            switch (sequenciaComputador[i])
-            {
-            case 0:
-                Instantiate(animMakunaima);
-                break;
-            case 1:
-                Instantiate(animCanaime);
-                break;
-            case 2:
-                break;
-            }
+            // switch (sequenciaComputador[i])
+            // {
+            // case 0:
+            //     Instantiate(animMakunaima);
+            //     break;
+            // case 1:
+            //     Instantiate(animCanaime);
+            //     break;
+            // case 2:
+            //     break;
+            // }
             Debug.Log($"computadorJogando = {computadorJogando}");
             audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
             audioSourceFlauta.Play();
