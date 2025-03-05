@@ -78,7 +78,7 @@ public class Genius : MonoBehaviour
                     temEsquerda = false;
                     temDireita = false;
                     botoes[0].Select();
-                    StartCoroutine(AnimacaoFlauta(animMakunaima));
+                    Instantiate(animMakunaima);
                     botoes[0].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[0];
                     audioSourceFlauta.Play();
@@ -88,7 +88,7 @@ public class Genius : MonoBehaviour
                     temEsquerda = false;
                     temDireita = false;
                     botoes[1].Select();
-                    StartCoroutine(AnimacaoFlauta(animCanaime));
+                    Instantiate(animCanaime);
                     botoes[1].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[1];
                     audioSourceFlauta.Play();
@@ -140,15 +140,14 @@ public class Genius : MonoBehaviour
             switch (sequenciaComputador[i])
             {
             case 0:
-                StartCoroutine(AnimacaoFlauta(animMakunaima));
+                Instantiate(animMakunaima);
                 break;
             case 1:
-                StartCoroutine(AnimacaoFlauta(animCanaime));
+                Instantiate(animCanaime);
                 break;
             case 2:
                 break;
             }
-            computadorJogando = true;
             Debug.Log($"computadorJogando = {computadorJogando}");
             audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
             audioSourceFlauta.Play();
@@ -197,17 +196,6 @@ public class Genius : MonoBehaviour
             sequenciaComputador.Clear();
             JogadaComputador();
         }
-    }
-
-    private IEnumerator AnimacaoFlauta(GameObject anim)
-    {
-        computadorJogando = true;
-        Debug.Log($"computadorJogando = {computadorJogando}");
-        anim.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        computadorJogando = false;
-        Debug.Log($"computadorJogando = {computadorJogando}");
-        anim.SetActive(false);
     }
 
     private IEnumerator Sleep(float time)

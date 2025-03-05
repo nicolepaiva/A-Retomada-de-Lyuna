@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2760135985857146004}
   - component: {fileID: 3227731465770300952}
   - component: {fileID: 9140878347051614766}
+  - component: {fileID: 8229175234700571664}
   m_Layer: 0
   m_Name: canaime
   m_TagString: Untagged
@@ -106,3 +107,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8229175234700571664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907250504666927402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf13115015cfdf543b52942d083ef125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

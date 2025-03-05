@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7693354007800899518}
   - component: {fileID: 4791138791455839282}
   - component: {fileID: 7969297309193263831}
+  - component: {fileID: 1579512794512760221}
   m_Layer: 0
   m_Name: makunaima
   m_TagString: Untagged
@@ -106,3 +107,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1579512794512760221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133934530905067450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf13115015cfdf543b52942d083ef125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
