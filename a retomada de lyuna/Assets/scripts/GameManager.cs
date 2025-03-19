@@ -8,6 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameObject boss;
+    public int recordeJogo;
+    public int distanciaPercorrida;
+    public TextMeshProUGUI tempoFaseTxt;
+    public TextMeshProUGUI pontuacaoAtualTxt;
+    public TextMeshProUGUI recordeTxt;
+
+    public int distanciaBoss = 500;
+    public Image barraProgresso;
 
     private bool chamouBoss = false;
 
@@ -60,18 +68,31 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        
         enabled = false;
-        Debug.Log("COMEÇOU");
-        _startingSceneTransition.SetActive(true);
-
         lyuna = FindObjectOfType<LyunaScript>();
         spawner = FindObjectOfType<SpawnerScript>();
-
-        jumpButton.gameObject.SetActive(true);
-        andarButton.gameObject.SetActive(false);
-        StartCoroutine(NewGame());
+        StartGame();
     }
 
+    public void StartGame()
+    {
+        _startingSceneTransition.SetActive(true);
+        spawner.gameObject.SetActive(true);
+        gameSpeed = initialGameSpeed;
+        DeleteAllChildren(spawner.obstaculosRoot.transform);
+        lyuna.gameObject.SetActive(true);
+        painelGameOver.SetActive(false);
+        deuGameOver = false;
+        StartCoroutine(NewGame());
+    }
+    public void DeleteAllChildren(Transform transform)
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
     private void DisableStartingSceneTransition()
     {
         _startingSceneTransition.SetActive(false);
@@ -83,18 +104,30 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ApresentarPontuacao()
+    {
+        tempoFaseTxt.enabled = false;
+
+        pontuacaoAtualTxt.text = distanciaPercorrida + "m";
+        if(distanciaPercorrida > recordeJogo)
+        {
+            recordeJogo = distanciaPercorrida;
+        }
+        recordeTxt.text = "recorde atual: "+recordeJogo + "m";
+        
+    }
+
     public IEnumerator NewGame()
     {
         painelGameOver.SetActive(false);
-        //gameOverText.gameObject.SetActive(false);
-        //retryButton.gameObject.SetActive(false);
-
+        tempoFaseTxt.enabled = true;
         yield return new WaitForSeconds(0.8f);
         gameSpeed = initialGameSpeed;
         enabled = true;
         jumpButton.gameObject.SetActive(true);
         DisableStartingSceneTransition();
         andarButton.gameObject.SetActive(false);
+        barraProgresso.fillAmount = 0;
     }
 
     public void GameOver()
@@ -104,32 +137,32 @@ public class GameManager : MonoBehaviour
         lyuna.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         painelGameOver.SetActive(true);
-        //gameOverText.gameObject.SetActive(true);
-        //retryButton.gameObject.SetActive(true);
         andarButton.gameObject.SetActive(false);
         deuGameOver = true;
-        //Debug.Log($"deu game over? {deuGameOver}");
+        ApresentarPontuacao();
+        distancia = 0f;
     }
 
     private void Update()
     {
-        //Debug.Log("tá na tela de game over?");
         if (!deuGameOver) 
         {
-           // Debug.Log("não");
+            barraProgresso.fillAmount = Mathf.Clamp01(distancia / distanciaBoss);
+
+            distanciaPercorrida = (int)distancia / 2;
+            tempoFaseTxt.text = distanciaPercorrida +"m";
             distancia += aumentoDistancia * Time.deltaTime;
             if (distancia < 468)
             {
                 gameSpeed += gameSpeedIncrease * Time.deltaTime;
             }
-            else if (distancia < 500)
+            else if (distancia < distanciaBoss)
             {
                 if (!chamouBoss)
                 {
                     
                     Instantiate(boss);
                     chamouBoss = true;
-                    
                 }
                 spawner.enabled = false;
             }
@@ -138,20 +171,9 @@ public class GameManager : MonoBehaviour
                 gameSpeed = 0;
                 aumentoDistancia = 0;
                 jumpButton.gameObject.SetActive(false);
+                tempoFaseTxt.enabled = false;
                 andarButton.gameObject.SetActive(true);
             }
         }
-        else 
-        {
-            // Remover controles PC
-            //Debug.Log("sim");
-            //if (Input.GetKeyDown(KeyCode.Space)) {
-               // Debug.Log("apertou espaço");
-                //retryButton.Select();
-            //}
-            //if (Input.GetKeyUp(KeyCode.Space)) {
-                //retryButton.onClick.Invoke();
-            //}
-        } 
     }
 }
