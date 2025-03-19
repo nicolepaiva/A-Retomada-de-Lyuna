@@ -27,8 +27,7 @@ public class Genius : MonoBehaviour
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
     [SerializeField] private Animator objAnimator;
-    [SerializeField] private GameObject animCanaime;
-    [SerializeField] private GameObject animMakunaima;
+    public animSpawnerScript animSpawner;
 
     private int indiceJogador = 0;
     private bool computadorJogando = false;
@@ -77,7 +76,7 @@ public class Genius : MonoBehaviour
                     // Debug.Log("vc apertou esquerda");
                     temEsquerda = false;
                     temDireita = false;
-                    Instantiate(animMakunaima);
+                    animSpawner.ExibirAnim(0);
                     botoes[0].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[0];
                     audioSourceFlauta.Play();
@@ -86,7 +85,7 @@ public class Genius : MonoBehaviour
                     // Debug.Log("vc apertou direita");
                     temEsquerda = false;
                     temDireita = false;
-                    Instantiate(animCanaime);
+                    animSpawner.ExibirAnim(1);;
                     botoes[1].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[1];
                     audioSourceFlauta.Play();
