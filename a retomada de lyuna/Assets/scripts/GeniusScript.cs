@@ -176,7 +176,7 @@ public class Genius : MonoBehaviour
                     Debug.Log($"computadorJogando = {computadorJogando}");
                     flautaFrente.SetActive(false);
                     caixaDiálogo.SetActive(true);
-                    dialogueSystem.Next();
+                    StartCoroutine(AtivaDialogo());
                     leftButton.gameObject.SetActive(false);
                     rightButton.gameObject.SetActive(false);
                 } else {
@@ -193,6 +193,12 @@ public class Genius : MonoBehaviour
             sequenciaComputador.Clear();
             JogadaComputador();
         }
+    }
+
+    private IEnumerator AtivaDialogo()
+    {
+        yield return new WaitForSeconds(0.2f);
+        dialogueSystem.Next();
     }
 
     private IEnumerator Sleep(float time)
