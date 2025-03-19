@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
+    public GameObject obstaculosRoot;
+
+
     [System.Serializable]
     public struct SpawnableObject
     {
@@ -45,7 +48,7 @@ public class SpawnerScript : MonoBehaviour
         {
             if (spawnChance < obj.spawnChance)
             {
-                GameObject obstacle = Instantiate(obj.prefab);
+                GameObject obstacle = Instantiate(obj.prefab, obstaculosRoot.transform);
                 obstacle.transform.position += pos;
                 break;
             }
