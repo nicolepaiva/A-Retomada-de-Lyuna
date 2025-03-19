@@ -67,7 +67,7 @@ public class Genius : MonoBehaviour
                     // Debug.Log("vc apertou dois botões");
                     temEsquerda = false;
                     temDireita = false;
-                    botoes[2].Select();
+                    animSpawner.ExibirAnim(2);
                     botoes[2].onClick.Invoke();
                     audioSourceFlauta.clip = sonsFlauta[2];
                     audioSourceFlauta.Play();
