@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lyuna 100 x 100 game_over_0
+  m_Name: lyuna 100 x 100 dead_0
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers: []

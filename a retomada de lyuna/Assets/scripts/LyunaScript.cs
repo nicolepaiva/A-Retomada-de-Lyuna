@@ -101,6 +101,10 @@ public class LyunaScript : MonoBehaviour
             //transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
         }
     }
+    public void MatarLyuna() {
+        objAnimator.SetBool("morrendo", true);
+        StartCoroutine(GameManager.Instance.GameOver());
+    }
     public void JumpWithButton()
     {
         if (jogadorEstaTocandoNoChao && podePular)
@@ -125,7 +129,8 @@ public class LyunaScript : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            GameManager.Instance.GameOver();
+            MatarLyuna();
+            
             
         }
         else if (other.CompareTag("Enemy"))
