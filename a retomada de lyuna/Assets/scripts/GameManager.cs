@@ -179,6 +179,8 @@ public class GameManager : MonoBehaviour
                 jumpButton.gameObject.SetActive(false);
                 tempoFaseTxt.enabled = false;
                 andarButton.gameObject.SetActive(true);
+                lyuna.objAnimator.SetBool("pegando_flauta", true);
+                
             }
         }
     }

@@ -120,6 +120,7 @@ public class LyunaScript : MonoBehaviour
     }
     private IEnumerator CarregarBatalha()
     {
+        objAnimator.SetBool("pegando_flauta", true);
         GameManager.Instance.EndingSceneTransition();
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);

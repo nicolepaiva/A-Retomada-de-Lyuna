@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b36b04951b3363d43907dd179dc400fc
+guid: 611df0d707b328d4e8b0b3545011cd7a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,148 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_0
+      name: botoes 116 x 118 cima_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 116
+        height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3b19f8bc68c5bd4091d00908cfd18f9
-      internalID: -1333170011
+      spriteID: 5077694de7eabeb48b3b289d54103048
+      internalID: 2059416522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_1
+      name: botoes 116 x 118 cima_1
       rect:
         serializedVersion: 2
-        x: 100
+        x: 116
         y: 0
-        width: 100
-        height: 100
+        width: 116
+        height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a1076fe511145b4586bcedbcff46766
-      internalID: -1610237736
+      spriteID: fe8deef1addce504484818b41fd1e082
+      internalID: -1429102372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_2
+      name: botoes 116 x 118 cima_2
       rect:
         serializedVersion: 2
-        x: 200
+        x: 232
         y: 0
-        width: 100
-        height: 100
-      alignment: 9
-      pivot: {x: 0.5409355, y: 0.5040937}
+        width: 116
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc6a056f653c2f749953b96a94430781
-      internalID: -225206683
+      spriteID: 794d37be9d1fbed4db6bec50c0108a1f
+      internalID: 1092798983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_3
+      name: botoes 116 x 118 cima_3
       rect:
         serializedVersion: 2
-        x: 300
+        x: 348
         y: 0
-        width: 100
-        height: 100
+        width: 116
+        height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b759dce74c066444aa87c392636202d
-      internalID: 1141494821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82d2db1e0f9b8e24185f3eea410e2fe4
-      internalID: -85606959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 131f31fbf7a2e8b46bedde9aee2824b4
-      internalID: -1821376558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lyuna 100 x 100 flauta_
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d78fbe65804703c4fa4745ffdb22dfa9
-      internalID: 697211831
+      spriteID: 5ea6983b64957894e8c92540c0f7e554
+      internalID: -1328119235
       vertices: []
       indices: 
       edges: []
@@ -267,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lyuna 100 x 100 flauta_: 697211831
-      lyuna 100 x 100 flauta_0: -1333170011
-      lyuna 100 x 100 flauta_1: -1610237736
-      lyuna 100 x 100 flauta_2: -225206683
-      lyuna 100 x 100 flauta_3: 1141494821
-      lyuna 100 x 100 flauta_4: -85606959
-      lyuna 100 x 100 flauta_5: -1821376558
-      lyuna 100 x 100 flauta_6: -515743449
+      botoes 116 x 118 cima_0: 2059416522
+      botoes 116 x 118 cima_1: -1429102372
+      botoes 116 x 118 cima_2: 1092798983
+      botoes 116 x 118 cima_3: -1328119235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

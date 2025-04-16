@@ -2412,14 +2412,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2022508997}
     m_Modifications:
+    - target: {fileID: 891292598149761716, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 891292598149761716, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -766789343, guid: 38169afe696afba4d85c73ab0a6288a6, type: 3}
+    - target: {fileID: 891292598149761716, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -1222214665, guid: 38169afe696afba4d85c73ab0a6288a6, type: 3}
+    - target: {fileID: 891292598149761716, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: -1222214665, guid: 38169afe696afba4d85c73ab0a6288a6, type: 3}
+    - target: {fileID: 2608734298107291528, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2059416522, guid: 611df0d707b328d4e8b0b3545011cd7a, type: 3}
+    - target: {fileID: 2608734298107291528, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608734298107291528, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3580582438095048908, guid: bb6162473fa749840b028af959904298, type: 3}
       propertyPath: m_Name
       value: GameObjectInput
       objectReference: {fileID: 0}
     - target: {fileID: 3893031855642599534, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3893031855642599534, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 1092798983, guid: 611df0d707b328d4e8b0b3545011cd7a, type: 3}
+    - target: {fileID: 3893031855642599534, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 2059416522, guid: 611df0d707b328d4e8b0b3545011cd7a, type: 3}
+    - target: {fileID: 3893031855642599534, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 2059416522, guid: 611df0d707b328d4e8b0b3545011cd7a, type: 3}
+    - target: {fileID: 3893031855642599534, guid: bb6162473fa749840b028af959904298, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1784414814}
+    - target: {fileID: 4799084797979735780, guid: bb6162473fa749840b028af959904298, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1222214665, guid: 38169afe696afba4d85c73ab0a6288a6, type: 3}
     - target: {fileID: 8235045763813483103, guid: bb6162473fa749840b028af959904298, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.83800006
