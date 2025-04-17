@@ -57,6 +57,7 @@ public class LyunaScript : MonoBehaviour
         {
             objAnimator.SetBool("andando", true);
             objAnimator.SetBool("idle", false);
+            objAnimator.SetBool("pegando_flauta", false);
         }
     }
 
@@ -73,11 +74,13 @@ public class LyunaScript : MonoBehaviour
             {
                 objAnimator.SetBool("idle", false);
                 objAnimator.SetBool("andando", true);
+                objAnimator.SetBool("pegando_flauta", false);
             }
             else
             {
                 objAnimator.SetBool("idle", true);
                 objAnimator.SetBool("andando", false);
+                
             }
         }
 
@@ -120,7 +123,7 @@ public class LyunaScript : MonoBehaviour
     }
     private IEnumerator CarregarBatalha()
     {
-        objAnimator.SetBool("pegando_flauta", true);
+        //objAnimator.SetBool("pegando_flauta", true);
         GameManager.Instance.EndingSceneTransition();
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);

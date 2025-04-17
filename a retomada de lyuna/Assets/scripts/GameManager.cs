@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _endingSceneTransition;
 
     private bool deuGameOver = false;
-    
+    public bool pegouFlauta = false;
     
     private void Awake()
     {
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         painelGameOver.SetActive(false);
         deuGameOver = false;
         StartCoroutine(NewGame());
+        pegouFlauta = false;
     }
     public void DeleteAllChildren(Transform transform)
     {
@@ -129,6 +130,7 @@ public class GameManager : MonoBehaviour
         andarButton.gameObject.SetActive(false);
         barraProgresso.fillAmount = 0;
         lyuna.objAnimator.SetBool("morrendo", false);
+        pegouFlauta = false;
     }
 
     public IEnumerator GameOver()
@@ -169,6 +171,7 @@ public class GameManager : MonoBehaviour
                     
                     Instantiate(boss);
                     chamouBoss = true;
+                    
                 }
                 spawner.enabled = false;
             }
@@ -179,8 +182,16 @@ public class GameManager : MonoBehaviour
                 jumpButton.gameObject.SetActive(false);
                 tempoFaseTxt.enabled = false;
                 andarButton.gameObject.SetActive(true);
-                lyuna.objAnimator.SetBool("pegando_flauta", true);
-                
+                if(!pegouFlauta)
+                {
+                    lyuna.objAnimator.SetBool("idle", true);
+                    lyuna.objAnimator.SetBool("pegando_flauta", true);
+                    pegouFlauta = true;
+                    Debug.Log("Pegou a flauta");
+
+                }
+
+
             }
         }
     }
