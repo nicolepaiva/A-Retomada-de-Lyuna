@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI recordeTxt;
 
     public int distanciaBoss = 500;
-    public Image barraProgresso;
+    //public Image barraProgresso;
+    public Slider novaBarraProgresso;
+
 
     private bool chamouBoss = false;
 
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public Button jumpButton;
     public Button andarButton;
+    public Button proxfaseButton;
 
     private LyunaScript lyuna;
     private SpawnerScript spawner;
@@ -126,9 +129,11 @@ public class GameManager : MonoBehaviour
         gameSpeed = initialGameSpeed;
         enabled = true;
         jumpButton.gameObject.SetActive(true);
+        proxfaseButton.gameObject.SetActive(false);
         DisableStartingSceneTransition();
         andarButton.gameObject.SetActive(false);
-        barraProgresso.fillAmount = 0;
+        //barraProgresso.fillAmount = 0;
+        novaBarraProgresso.value = 0;
         lyuna.objAnimator.SetBool("morrendo", false);
         pegouFlauta = false;
     }
@@ -155,8 +160,8 @@ public class GameManager : MonoBehaviour
     {
         if (!deuGameOver) 
         {
-            barraProgresso.fillAmount = Mathf.Clamp01(distancia / distanciaBoss);
-
+            //barraProgresso.fillAmount = Mathf.Clamp01(distancia / distanciaBoss);
+            novaBarraProgresso.value = Mathf.Clamp01(distancia / distanciaBoss);
             distanciaPercorrida = (int)distancia / 2;
             tempoFaseTxt.text = distanciaPercorrida +"m";
             distancia += aumentoDistancia * Time.deltaTime;
@@ -181,13 +186,14 @@ public class GameManager : MonoBehaviour
                 aumentoDistancia = 0;
                 jumpButton.gameObject.SetActive(false);
                 tempoFaseTxt.enabled = false;
-                andarButton.gameObject.SetActive(true);
+                //andarButton.gameObject.SetActive(true);
                 if(!pegouFlauta)
                 {
                     lyuna.objAnimator.SetBool("idle", true);
                     lyuna.objAnimator.SetBool("pegando_flauta", true);
                     pegouFlauta = true;
-                    Debug.Log("Pegou a flauta");
+                    //Debug.Log("Pegou a flauta");
+                    proxfaseButton.gameObject.SetActive(true);
 
                 }
 

@@ -121,12 +121,17 @@ public class LyunaScript : MonoBehaviour
             objAnimator.SetBool("pulando", true);
         }
     }
-    private IEnumerator CarregarBatalha()
+    public IEnumerator CarregarBatalha()
     {
         //objAnimator.SetBool("pegando_flauta", true);
         GameManager.Instance.EndingSceneTransition();
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(faseNova);
+    }
+
+    public void ChamarProximaFase()
+    {
+        StartCoroutine(CarregarBatalha());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
