@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/fases/intro2.unity
     guid: b4562dc3ede94ac4896316fb856118d5
-  - enabled: 0
+  - enabled: 1
+    path: Assets/fases/menu.unity
+    guid: 911bc21a5039a694dba06af0e4136949
+  - enabled: 1
+    path: Assets/fases/creditos.unity
+    guid: 0eda47a907ce7b74ea8d7ac6b47b2765
+  - enabled: 1
     path: Assets/fases/fase01.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -23,7 +29,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/fases/batalha-fase02.unity
     guid: a9d61e9cc2adc014090d59317f364ba9
-  - enabled: 0
-    path: Assets/fases/creditos.unity
-    guid: 0eda47a907ce7b74ea8d7ac6b47b2765
   m_configObjects: {}
