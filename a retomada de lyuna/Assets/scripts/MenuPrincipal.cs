@@ -23,6 +23,10 @@ public class MenuPrincipal : MonoBehaviour
     {
         StartCoroutine(CarregarCenaAsync(nomeCenaJogo)); // Substitua pelo nome da cena do jogo
     }
+    public void IniciarFase(string nomeFase)
+    {
+        StartCoroutine(CarregarCenaAsync(nomeFase));
+    }
 
     // Método chamado ao clicar no botão "Créditos"
     public void AbrirCreditos()
