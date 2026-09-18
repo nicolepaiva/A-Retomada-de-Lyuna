@@ -11,15 +11,15 @@ public class animSpawnerScript : MonoBehaviour
         switch (animEscolha)
         {
             case 0:
-                GameObject anim0 = Instantiate(animMakunaima, new Vector3(131.2f, -172.8f, 0f), Quaternion.identity);
+                GameObject anim0 = Instantiate(animMakunaima, new Vector3(15.9f, -172.8f, 0f), Quaternion.identity);
                 anim0.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 break;
             case 1:
-                GameObject anim1 = Instantiate(animCanaime, new Vector3(497.6f, -172.8f, 0f), Quaternion.identity);
+                GameObject anim1 = Instantiate(animCanaime, new Vector3(196.7f, -172.8f, 0f), Quaternion.identity);
                 anim1.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 break;
             case 2:
-                GameObject anim2 = Instantiate(animDupla, new Vector3(315.6f, -172.8f, 0f), Quaternion.identity);
+                GameObject anim2 = Instantiate(animDupla, new Vector3(395f, -172.8f, 0f), Quaternion.identity);
                 anim2.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 break;
         }

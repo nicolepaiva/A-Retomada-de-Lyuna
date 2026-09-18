@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Genius : MonoBehaviour
 {
     private bool temEsquerda = false;
@@ -37,6 +38,11 @@ public class Genius : MonoBehaviour
     public AudioClip[] sonsFlauta;
 
     DialogueSystem dialogueSystem;
+
+
+    private float lastClickA = -1f;
+    private float lastClickB = -1f;
+    private float comboWindow = 0.3f;
 
     void Awake()
     {
@@ -103,6 +109,9 @@ public class Genius : MonoBehaviour
 
     public IEnumerator Start()
     {
+
+        leftButton.onClick.AddListener(OnButtonAClick);
+        rightButton.onClick.AddListener(OnButtonBClick);
         Debug.Log($"computadorJogando = {computadorJogando}");
         screenWidth = Screen.width;
         _startingSceneTransition.SetActive(true);
@@ -120,6 +129,41 @@ public class Genius : MonoBehaviour
         StartCoroutine(MostraSequencia());
     }
 
+    void OnButtonAClick()
+    {
+        if (!computadorJogando)
+        {
+            lastClickA = Time.time;
+            JogadaJogador(0);
+            CheckCombo();
+        }
+    }
+
+    void OnButtonBClick()
+    {
+        if (!computadorJogando)
+        {
+            lastClickB = Time.time;
+            JogadaJogador(1);
+            
+            CheckCombo();
+        }
+    }
+
+    void CheckCombo()
+    {
+        if (Mathf.Abs(lastClickA - lastClickB) <= comboWindow)
+        {
+            ComboEvent();
+        }
+    }
+
+    void ComboEvent()
+    {
+        Debug.LogWarning("Apertando COmbo");
+        JogadaJogador(2);
+    }
+
     private IEnumerator MostraSequencia()
     {
         sequenciaComputador.Add(Random.Range(0, 3));
@@ -128,7 +172,7 @@ public class Genius : MonoBehaviour
         foreach (var x in sequenciaComputador) {
             exibirSequencia += x.ToString() + " - ";
         }
-        Debug.Log(exibirSequencia);
+        //Debug.Log(exibirSequencia);
 
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < sequenciaComputador.Count; i++)
@@ -145,7 +189,7 @@ public class Genius : MonoBehaviour
             // case 2:
             //     break;
             // }
-            Debug.Log($"computadorJogando = {computadorJogando}");
+            //Debug.Log($"computadorJogando = {computadorJogando}");
             audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
             audioSourceFlauta.Play();
             yield return new WaitForSeconds(0.5f);
@@ -153,14 +197,15 @@ public class Genius : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         computadorJogando = false;
-        Debug.Log($"computadorJogando = {computadorJogando}");                
+        //Debug.Log($"computadorJogando = {computadorJogando}");                
     }
 
     public void JogadaJogador(int _notaTocada) //0 = vermelho | 1 = azul | 2 = vermelho + azul
     {
 
         StartCoroutine(Sleep(0.2f));
-        // Debug.Log($"_botaoPressionado: {_notaTocada}"); 
+        animSpawner.ExibirAnim(_notaTocada);
+        Debug.Log($"_botaoPressionado: {_notaTocada}"); 
         if(_notaTocada == sequenciaComputador[indiceJogador])
         {
             indiceJogador++;

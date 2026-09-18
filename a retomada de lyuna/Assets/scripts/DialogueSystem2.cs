@@ -70,7 +70,23 @@ public class DialogueSystem2 : MonoBehaviour
             }
         }
     }
-
+    public void AvancarBotao()
+    {
+        typeText.Skip();
+        state = STATE.WAITING;
+        if (!finished)
+        {
+            Next();
+        }
+        else
+        {
+            state = STATE.DISABLED;
+            currentText = 0;
+            finished = false;
+            Debug.Log("Carregando fase...");
+            StartCoroutine(CarregarFase());
+        }
+    }
     void Typing() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             typeText.Skip();

@@ -22,10 +22,21 @@ public class LyunaScript : MonoBehaviour
     private bool podePular;
     public Transform verificadorDeChao;
 
+    public AudioClip somPulo;
+    public AudioClip somMorrendo;
+    public AudioClip somCorrendo;
+    public AudioClip somAterrissando;
+    private AudioSource audioSource;
+
     //public bool ButtonAndarPressed = false;
 
     public float tamanhoDoVerificadorDeChao;
     public LayerMask camadaDoChao;
+
+    public void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
 
     private void FixedUpdate()
@@ -107,6 +118,7 @@ public class LyunaScript : MonoBehaviour
     public void MatarLyuna() {
         objAnimator.SetBool("morrendo", true);
         StartCoroutine(GameManager.Instance.GameOver());
+        audioSource.PlayOneShot(somMorrendo);
     }
     public void JumpWithButton()
     {
@@ -119,6 +131,7 @@ public class LyunaScript : MonoBehaviour
             Debug.Log("pulando");
             rigidBody.AddForce(new Vector2(0f, alturaPulo), ForceMode2D.Impulse);
             objAnimator.SetBool("pulando", true);
+            audioSource.PlayOneShot(somPulo);
         }
     }
     public IEnumerator CarregarBatalha()

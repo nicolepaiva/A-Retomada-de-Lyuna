@@ -78,6 +78,12 @@ public class DialogueSystem : MonoBehaviour
             }
         }
     }
+    public void ProximoTexto()
+    {
+        typeText.Skip();
+        state = STATE.WAITING;
+
+    }
 
     void Typing() {
         if (Input.touchCount > 0) {
