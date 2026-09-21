@@ -12,6 +12,7 @@ public class Genius : MonoBehaviour
     [SerializeField] private Button botaoAux;
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
+    [SerializeField] private Button botaoVerde;
     private Touch touchLeft;
     private Touch touchRight;
     private Touch theTouch;
@@ -70,7 +71,8 @@ public class Genius : MonoBehaviour
                     }
                 }
             
-                if (temEsquerda && temDireita && ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
+                if (temEsquerda && temDireita) { 
+                    //&& ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
                     // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
                     // Debug.Log("vc apertou dois botões");
                     temEsquerda = false;
@@ -114,7 +116,8 @@ public class Genius : MonoBehaviour
 
         leftButton.onClick.AddListener(OnButtonAClick);
         rightButton.onClick.AddListener(OnButtonBClick);
-        Debug.Log($"computadorJogando = {computadorJogando}");
+        botaoVerde.onClick.AddListener(OnButtonVerdeClic);
+    Debug.Log($"computadorJogando = {computadorJogando}");
         screenWidth = Screen.width;
         _startingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -137,7 +140,7 @@ public class Genius : MonoBehaviour
         {
             lastClickA = Time.time;
             JogadaJogador(0);
-            CheckCombo();
+            //CheckCombo();
         }
     }
 
@@ -148,9 +151,19 @@ public class Genius : MonoBehaviour
             lastClickB = Time.time;
             JogadaJogador(1);
             
-            CheckCombo();
+            //CheckCombo();
         }
     }
+
+    void OnButtonVerdeClic() { 
+        if (!computadorJogando)
+        {
+            lastClickB = Time.time;
+            JogadaJogador(2);
+        //CheckCombo();
+        }
+    }
+    
 
     void CheckCombo()
     {
