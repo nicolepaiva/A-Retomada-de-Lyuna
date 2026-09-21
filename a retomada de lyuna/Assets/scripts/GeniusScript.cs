@@ -44,6 +44,8 @@ public class Genius : MonoBehaviour
     private float lastClickB = -1f;
     private float comboWindow = 0.3f;
 
+    public string faseNova;
+
     void Awake()
     {
         dialogueSystem = FindObjectOfType<DialogueSystem>();
@@ -157,7 +159,13 @@ public class Genius : MonoBehaviour
             ComboEvent();
         }
     }
-
+    public IEnumerator CarregarFase()
+    {
+        caixaDiálogo.SetActive(false);
+        _endingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(faseNova);
+    }
     void ComboEvent()
     {
         Debug.LogWarning("Apertando COmbo");
