@@ -270,9 +270,9 @@ MonoBehaviour:
   animSpawner: {fileID: 1346853063}
   audioSourceFlauta: {fileID: 70889799}
   sonsFlauta:
-  - {fileID: 8300000, guid: 9c1c1bd366252ea4f89299fcc3cb4069, type: 3}
-  - {fileID: 8300000, guid: 1c746e226dce3f444a39d55411a1d46d, type: 3}
-  - {fileID: 8300000, guid: a2c479a19cc80e54cbafa1bf0bd8c55a, type: 3}
+  - {fileID: 8300000, guid: 268052ec7280c474796e8338d41a0ef3, type: 3}
+  - {fileID: 8300000, guid: 71728ead175758f4abe5f1a8214083aa, type: 3}
+  - {fileID: 8300000, guid: ac72eab1c717472498624896b4edf467, type: 3}
 --- !u!82 &70889799
 AudioSource:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 2319986030102519470, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: musicaDeFundo
       value: 
-      objectReference: {fileID: 8300000, guid: 0720859e0d514b74bac0f5052d04644e, type: 3}
+      objectReference: {fileID: 8300000, guid: f01db3b598fa0a64fa172ae743b9f0a9, type: 3}
     - target: {fileID: 3323807675383225990, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: m_Name
       value: AudioController
@@ -910,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6986643707721638906, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.022
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2475,7 +2475,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 0}
@@ -2487,7 +2487,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 40f2dfbe766361a4181dd8a41674f017, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2599,7 +2599,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 0}
@@ -2611,7 +2611,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 1020876483d525a419e18659aa3971f3, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2954,7 +2954,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 0}
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: fa2fa12a0241975469116740be81af56, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
