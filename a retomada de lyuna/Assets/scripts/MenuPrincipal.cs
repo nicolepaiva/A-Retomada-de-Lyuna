@@ -46,7 +46,7 @@ public class MenuPrincipal : MonoBehaviour
     private IEnumerator CarregarCenaAsync(string nomeCena)
     {
         // Exibe a tela de carregamento
-        // loadingScreen.SetActive(true);
+        loadingScreen.SetActive(true);
 
         // Inicia o carregamento da cena
         AsyncOperation operacao = SceneManager.LoadSceneAsync(nomeCena);
@@ -55,7 +55,7 @@ public class MenuPrincipal : MonoBehaviour
         while (!operacao.isDone)
         {
             float progresso = Mathf.Clamp01(operacao.progress / 0.9f);
-           // loadingBar.value = progresso;
+            loadingBar.value = progresso;
             yield return null;
         }
     }

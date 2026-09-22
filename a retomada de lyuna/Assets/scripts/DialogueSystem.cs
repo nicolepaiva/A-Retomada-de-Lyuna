@@ -54,25 +54,6 @@ public class DialogueSystem : MonoBehaviour
         state = STATE.TYPING;
     }
 
-    public void AvancarBotao()
-    {
-        typeText.Skip();
-        state = STATE.WAITING;
-        if (!finished)
-        {
-            Next();
-        }
-        else
-        {
-            state = STATE.DISABLED;
-            currentText = 0;
-            finished = false;
-            Debug.Log("Carregando fase...");
-            StartCoroutine(geniusScript.CarregarFase());
-            //StartCoroutine(CarregarFase());
-        }
-    }
-
     void OnTypeFinished() {
         state = STATE.WAITING;
     }
@@ -96,12 +77,6 @@ public class DialogueSystem : MonoBehaviour
                 }
             }
         }
-    }
-    public void ProximoTexto()
-    {
-        typeText.Skip();
-        state = STATE.WAITING;
-
     }
 
     void Typing() {

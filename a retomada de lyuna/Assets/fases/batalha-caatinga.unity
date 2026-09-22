@@ -179,6 +179,7 @@ MonoBehaviour:
   barraVidaObjeto: {fileID: 1301827577}
   barra: {fileID: 1301827580}
   vidaDoInimigo: 10
+  faseNova: cutcenesfinal
   sequenciaComputador: 
   _startingSceneTransition: {fileID: 1138269410}
   _endingSceneTransition: {fileID: 2070573364}
@@ -186,9 +187,9 @@ MonoBehaviour:
   animSpawner: {fileID: 1346853063}
   audioSourceFlauta: {fileID: 70889799}
   sonsFlauta:
-  - {fileID: 8300000, guid: 9c1c1bd366252ea4f89299fcc3cb4069, type: 3}
-  - {fileID: 8300000, guid: 1c746e226dce3f444a39d55411a1d46d, type: 3}
-  - {fileID: 8300000, guid: a2c479a19cc80e54cbafa1bf0bd8c55a, type: 3}
+  - {fileID: 8300000, guid: 268052ec7280c474796e8338d41a0ef3, type: 3}
+  - {fileID: 8300000, guid: 71728ead175758f4abe5f1a8214083aa, type: 3}
+  - {fileID: 8300000, guid: ac72eab1c717472498624896b4edf467, type: 3}
 --- !u!82 &70889799
 AudioSource:
   m_ObjectHideFlags: 0
@@ -920,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 2319986030102519470, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: musicaDeFundo
       value: 
-      objectReference: {fileID: 8300000, guid: 0720859e0d514b74bac0f5052d04644e, type: 3}
+      objectReference: {fileID: 8300000, guid: 0b3c9dcad7338cf44a52934bfe16d85f, type: 3}
     - target: {fileID: 3323807675383225990, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: m_Name
       value: AudioController
@@ -967,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6986643707721638906, guid: e4b7835d06068c04eb8e82350ac3a5e7, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2813,7 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c54e9a0f5bba964fb4394274e17df4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 1419f8dc6725435439d25e300accc915, type: 2}
+  dialogueData: {fileID: 11400000, guid: 0463f7e96b46d4d46aef0d35528f82f9, type: 2}
   geniusScript: {fileID: 70889798}
 --- !u!222 &4485041164529477768
 CanvasRenderer:

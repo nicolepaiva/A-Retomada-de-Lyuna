@@ -263,6 +263,7 @@ MonoBehaviour:
   barraVidaObjeto: {fileID: 1301827577}
   barra: {fileID: 1301827580}
   vidaDoInimigo: 10
+  faseNova: caatinga parte 1
   sequenciaComputador: 
   _startingSceneTransition: {fileID: 1138269410}
   _endingSceneTransition: {fileID: 2070573364}
