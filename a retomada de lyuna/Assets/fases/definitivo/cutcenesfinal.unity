@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1784004959}
-  sceneToLoad: fase01
+  sceneToLoad: menu
 --- !u!328 &1784004959
 VideoPlayer:
   m_ObjectHideFlags: 0
