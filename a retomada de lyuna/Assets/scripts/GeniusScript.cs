@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Genius : MonoBehaviour
 {
     private bool temEsquerda = false;
     private bool temDireita = false;
-    [SerializeField] private Button[] buracos;
     [SerializeField] private Button[] botoes;
     [SerializeField] private Button botaoAux;
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
+    [SerializeField] private Button botaoVerde;
     private Touch touchLeft;
     private Touch touchRight;
     private Touch theTouch;
@@ -23,7 +24,7 @@ public class Genius : MonoBehaviour
     public GameObject barraVidaObjeto;
     public VidaScript barra;
     public float vidaDoInimigo = 0;
-    public string faseNova;
+    // public string faseNova;
     public List<int> sequenciaComputador = new List<int>();
     [SerializeField] private GameObject _startingSceneTransition;
     [SerializeField] private GameObject _endingSceneTransition;
@@ -39,22 +40,84 @@ public class Genius : MonoBehaviour
 
     DialogueSystem dialogueSystem;
 
+
+    private float lastClickA = -1f;
+    private float lastClickB = -1f;
+    private float comboWindow = 0.3f;
+
+    public string faseNova;
+
     void Awake()
     {
         dialogueSystem = FindObjectOfType<DialogueSystem>();
     }
 
-    public IEnumerator CarregarFase()
+    void Update()
     {
-        caixaDiálogo.SetActive(false);
-        _endingSceneTransition.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(faseNova);
+        if (!computadorJogando) {
+            if (Input.touchCount > 0) {
+                for (int i = 0; i < Input.touchCount; i++) {
+                    theTouch = Input.GetTouch(i);
+                    if (theTouch.position.x < screenWidth/2) {
+                        touchLeft = theTouch;
+                        if (touchLeft.phase == TouchPhase.Began) {
+                            temEsquerda = true;
+                        }
+                    } else {
+                        touchRight = theTouch;
+                        if (touchRight.phase == TouchPhase.Began) {
+                            temDireita = true;
+                        }
+                    }
+                }
+            
+                if (temEsquerda && temDireita) { 
+                    //&& ((touchLeft.phase == TouchPhase.Stationary && touchRight.phase == TouchPhase.Ended) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Stationary) || (touchLeft.phase == TouchPhase.Ended && touchRight.phase == TouchPhase.Ended))) { //verifica se apertou dos dois lados ao mesmo tempo
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou dois botões");
+                    temEsquerda = false;
+                    temDireita = false;
+                    animSpawner.ExibirAnim(2);
+                    botoes[2].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[2];
+                    audioSourceFlauta.Play();
+                } else if (temEsquerda && touchLeft.phase == TouchPhase.Ended) { //verifica se apertou do lado esquerdo
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou esquerda");
+                    temEsquerda = false;
+                    temDireita = false;
+                    animSpawner.ExibirAnim(0);
+                    botoes[0].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[0];
+                    audioSourceFlauta.Play();
+                } else if (temDireita && touchRight.phase == TouchPhase.Ended) { //verifica se apertou do lado direito
+                    // Debug.Log("touchLeft: " + touchLeft.phase + ", touchRight: " + touchRight.phase);
+                    // Debug.Log("vc apertou direita");
+                    temEsquerda = false;
+                    temDireita = false;
+                    animSpawner.ExibirAnim(1);;
+                    botoes[1].onClick.Invoke();
+                    audioSourceFlauta.clip = sonsFlauta[1];
+                    audioSourceFlauta.Play();
+                } 
+            }     
+        }
     }
+    // public IEnumerator CarregarFase()
+    // {
+    //     caixaDiálogo.SetActive(false);
+    //     _endingSceneTransition.SetActive(true);
+    //     yield return new WaitForSeconds(1.5f);
+    //     SceneManager.LoadScene(faseNova);
+    // }
 
     public IEnumerator Start()
     {
-        Debug.Log($"computadorJogando = {computadorJogando}");
+
+        leftButton.onClick.AddListener(OnButtonAClick);
+        rightButton.onClick.AddListener(OnButtonBClick);
+        botaoVerde.onClick.AddListener(OnButtonVerdeClic);
+    Debug.Log($"computadorJogando = {computadorJogando}");
         screenWidth = Screen.width;
         _startingSceneTransition.SetActive(true);
         yield return new WaitForSeconds(1.5f);
@@ -71,6 +134,57 @@ public class Genius : MonoBehaviour
         StartCoroutine(MostraSequencia());
     }
 
+    void OnButtonAClick()
+    {
+        if (!computadorJogando)
+        {
+            lastClickA = Time.time;
+            JogadaJogador(0);
+            //CheckCombo();
+        }
+    }
+
+    void OnButtonBClick()
+    {
+        if (!computadorJogando)
+        {
+            lastClickB = Time.time;
+            JogadaJogador(1);
+            
+            //CheckCombo();
+        }
+    }
+
+    void OnButtonVerdeClic() { 
+        if (!computadorJogando)
+        {
+            lastClickB = Time.time;
+            JogadaJogador(2);
+        //CheckCombo();
+        }
+    }
+    
+
+    void CheckCombo()
+    {
+        if (Mathf.Abs(lastClickA - lastClickB) <= comboWindow)
+        {
+            ComboEvent();
+        }
+    }
+    public IEnumerator CarregarFase()
+    {
+        caixaDiálogo.SetActive(false);
+        _endingSceneTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(faseNova);
+    }
+    void ComboEvent()
+    {
+        Debug.LogWarning("Apertando COmbo");
+        JogadaJogador(2);
+    }
+
     private IEnumerator MostraSequencia()
     {
         sequenciaComputador.Add(Random.Range(0, 3));
@@ -79,12 +193,12 @@ public class Genius : MonoBehaviour
         foreach (var x in sequenciaComputador) {
             exibirSequencia += x.ToString() + " - ";
         }
-        Debug.Log(exibirSequencia);
+        //Debug.Log(exibirSequencia);
 
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < sequenciaComputador.Count; i++)
         {
-            buracos[sequenciaComputador[i]].Select();
+            botoes[sequenciaComputador[i]].Select();
             // switch (sequenciaComputador[i])
             // {
             // case 0:
@@ -96,7 +210,7 @@ public class Genius : MonoBehaviour
             // case 2:
             //     break;
             // }
-            Debug.Log($"computadorJogando = {computadorJogando}");
+            //Debug.Log($"computadorJogando = {computadorJogando}");
             audioSourceFlauta.clip = sonsFlauta[sequenciaComputador[i]];
             audioSourceFlauta.Play();
             yield return new WaitForSeconds(0.5f);
@@ -104,54 +218,47 @@ public class Genius : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         computadorJogando = false;
-        Debug.Log($"computadorJogando = {computadorJogando}");                
+        //Debug.Log($"computadorJogando = {computadorJogando}");                
     }
 
     public void JogadaJogador(int _notaTocada) //0 = vermelho | 1 = azul | 2 = vermelho + azul
     {
-        if (!computadorJogando)
-        {
-            animSpawner.ExibirAnim(_notaTocada);
-            buracos[_notaTocada].onClick.Invoke();
-            audioSourceFlauta.clip = sonsFlauta[_notaTocada];
-            audioSourceFlauta.Play();
 
-            StartCoroutine(Sleep(0.2f));
-            // Debug.Log($"_botaoPressionado: {_notaTocada}"); 
-            if(_notaTocada == sequenciaComputador[indiceJogador])
+        StartCoroutine(Sleep(0.2f));
+        animSpawner.ExibirAnim(_notaTocada);
+        Debug.Log($"_botaoPressionado: {_notaTocada}"); 
+        if(_notaTocada == sequenciaComputador[indiceJogador])
+        {
+            indiceJogador++;
+            if(indiceJogador >= sequenciaComputador.Count)
             {
-                indiceJogador++;
-                if(indiceJogador >= sequenciaComputador.Count)
-                {
-                    // Debug.Log("acertou a sequência");
-                    indiceJogador = 0;
-                    vidaDoInimigo += 20;
-                    barra.AlterarVida(vidaDoInimigo);
-                    if(vidaDoInimigo >= 100){
-                        objAnimator.Play("animHarpiaIdleMansa");
-                        computadorJogando = true;
-                        Debug.Log($"computadorJogando = {computadorJogando}");
-                        flautaFrente.SetActive(false);
-                        caixaDiálogo.SetActive(true);
-                        StartCoroutine(AtivaDialogo());
-                        leftButton.gameObject.SetActive(false);
-                        rightButton.gameObject.SetActive(false);
-                    } else {
-                        JogadaComputador();
-                    }
+                // Debug.Log("acertou a sequência");
+                indiceJogador = 0;
+                vidaDoInimigo += 20;
+                barra.AlterarVida(vidaDoInimigo);
+                if(vidaDoInimigo >= 100){
+                    objAnimator.Play("animHarpiaIdleMansa");
+                    computadorJogando = true;
+                    Debug.Log($"computadorJogando = {computadorJogando}");
+                    flautaFrente.SetActive(false);
+                    caixaDiálogo.SetActive(true);
+                    StartCoroutine(AtivaDialogo());
+                    leftButton.gameObject.SetActive(false);
+                    rightButton.gameObject.SetActive(false);
+                } else {
+                    JogadaComputador();
                 }
             }
-            else
-            {
-                // Debug.Log("não: gameover");
-                indiceJogador = 0;
-                vidaDoInimigo = 0;
-                barra.AlterarVida(vidaDoInimigo);
-                sequenciaComputador.Clear();
-                JogadaComputador();
-            }
         }
-
+        else
+        {
+            // Debug.Log("não: gameover");
+            indiceJogador = 0;
+            vidaDoInimigo = 0;
+            barra.AlterarVida(vidaDoInimigo);
+            sequenciaComputador.Clear();
+            JogadaComputador();
+        }
     }
 
     private IEnumerator AtivaDialogo()

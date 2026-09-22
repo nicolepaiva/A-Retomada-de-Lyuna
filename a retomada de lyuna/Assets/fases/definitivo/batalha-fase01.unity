@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -156,6 +153,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -251,23 +250,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dece2747e50bcc41bb39e62d1b9b1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buracos:
+  botoes:
   - {fileID: 963861576}
   - {fileID: 612111148}
   - {fileID: 1949305444}
-  botoes:
-  - {fileID: 1784151461}
-  - {fileID: 854041415}
-  - {fileID: 614943313}
   botaoAux: {fileID: 1096668494}
   leftButton: {fileID: 1784151461}
   rightButton: {fileID: 614943313}
+  botaoVerde: {fileID: 854041415}
   "caixaDi\xE1logo": {fileID: 1780131973970348973}
   flautaFrente: {fileID: 2126308126}
   barraVidaObjeto: {fileID: 1301827577}
   barra: {fileID: 1301827580}
   vidaDoInimigo: 10
-  faseNova: caatinga parte 1
   sequenciaComputador: 
   _startingSceneTransition: {fileID: 1138269410}
   _endingSceneTransition: {fileID: 2070573364}
@@ -278,6 +273,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9c1c1bd366252ea4f89299fcc3cb4069, type: 3}
   - {fileID: 8300000, guid: 1c746e226dce3f444a39d55411a1d46d, type: 3}
   - {fileID: 8300000, guid: a2c479a19cc80e54cbafa1bf0bd8c55a, type: 3}
+  faseNova: caatinga parte 1
 --- !u!82 &70889799
 AudioSource:
   m_ObjectHideFlags: 0
@@ -289,6 +285,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -947,7 +944,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.4528302, g: 0.45084676, b: 0.4506942, a: 1}
     m_HighlightedColor: {r: 0.31132078, g: 0.3098523, b: 0.3098523, a: 1}
@@ -959,7 +956,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 20d48a8ae1dfb1f4bbbecf659813e5cc, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1004,7 +1001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78e5a8687169b8f42977d36e363e6c4d, type: 3}
+  m_Sprite: {fileID: 9157491813682994726, guid: f176e1789205c0e4da4681bdd74cf1d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1035,7 +1032,7 @@ GameObject:
   - component: {fileID: 614943314}
   - component: {fileID: 614943313}
   m_Layer: 5
-  m_Name: botao canaime
+  m_Name: botao canaime (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,19 +1100,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 614943314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 70889798}
-        m_TargetAssemblyTypeName: Genius, Assembly-CSharp
-        m_MethodName: JogadaJogador
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &614943314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1159,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &675405556
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1188,6 +1173,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1210,6 +1196,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1416,7 +1404,7 @@ GameObject:
   - component: {fileID: 854041416}
   - component: {fileID: 854041415}
   m_Layer: 5
-  m_Name: botao makunaime
+  m_Name: botao canaime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,19 +1472,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 854041416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 70889798}
-        m_TargetAssemblyTypeName: Genius, Assembly-CSharp
-        m_MethodName: JogadaJogador
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &854041416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,7 +1568,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.45490196, g: 0.4509804, b: 0.4509804, a: 0.99215686}
     m_HighlightedColor: {r: 0.31132078, g: 0.3098523, b: 0.3098523, a: 1}
@@ -1604,7 +1580,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: a731da271999ebf41b0e9bd1d41e5e30, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1649,7 +1625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78e5a8687169b8f42977d36e363e6c4d, type: 3}
+  m_Sprite: {fileID: 9157491813682994726, guid: f176e1789205c0e4da4681bdd74cf1d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1952,6 +1928,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2188,7 +2166,7 @@ CanvasGroup:
   m_IgnoreParentGroups: 0
 --- !u!95 &1138269413
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2202,6 +2180,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2791,19 +2770,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1784151462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 70889798}
-        m_TargetAssemblyTypeName: Genius, Assembly-CSharp
-        m_MethodName: JogadaJogador
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1784151462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3000,7 +2967,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.45490196, g: 0.4509804, b: 0.4509804, a: 0.99215686}
     m_HighlightedColor: {r: 0.31132078, g: 0.3098523, b: 0.3098523, a: 1}
@@ -3012,7 +2979,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 81bb6309d40d10240a689984f084610e, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3057,7 +3024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78e5a8687169b8f42977d36e363e6c4d, type: 3}
+  m_Sprite: {fileID: 9157491813682994726, guid: f176e1789205c0e4da4681bdd74cf1d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3196,7 +3163,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2070573366
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3210,6 +3177,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3374,6 +3342,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4010,7 +3980,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1131453975046746706, guid: 7ccc123ea9799df49a1b16dc58f0cb66, type: 3}
-      propertyPath: m_ActiveFontFeatures.Array.data[0]
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 2264895738371070923, guid: 7ccc123ea9799df49a1b16dc58f0cb66, type: 3}
@@ -4018,7 +3988,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2264895738371070923, guid: 7ccc123ea9799df49a1b16dc58f0cb66, type: 3}
-      propertyPath: m_ActiveFontFeatures.Array.data[0]
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7008605967537077744, guid: 7ccc123ea9799df49a1b16dc58f0cb66, type: 3}
@@ -4034,7 +4004,7 @@ PrefabInstance:
       value: "Clique na tela para avan\xE7ar"
       objectReference: {fileID: 0}
     - target: {fileID: 7263028305784452943, guid: 7ccc123ea9799df49a1b16dc58f0cb66, type: 3}
-      propertyPath: m_ActiveFontFeatures.Array.data[0]
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
