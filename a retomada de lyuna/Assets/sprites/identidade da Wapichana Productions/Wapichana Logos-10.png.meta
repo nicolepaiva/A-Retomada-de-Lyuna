@@ -1,0 +1,607 @@
+fileFormatVersion: 2
+guid: 8026d5456808982479f21e34a17bd6aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -163319208428766982
+    second: Wapichana Logos-10_0
+  - first:
+      213: 363792048372434944
+    second: Wapichana Logos-10_1
+  - first:
+      213: -5882308149249116167
+    second: Wapichana Logos-10_2
+  - first:
+      213: -6489633859543192250
+    second: Wapichana Logos-10_3
+  - first:
+      213: -7594786999213495980
+    second: Wapichana Logos-10_4
+  - first:
+      213: 8756437331432534997
+    second: Wapichana Logos-10_5
+  - first:
+      213: 8967989464754195587
+    second: Wapichana Logos-10_6
+  - first:
+      213: 7013787723322362548
+    second: Wapichana Logos-10_7
+  - first:
+      213: 2701461248227726890
+    second: Wapichana Logos-10_8
+  - first:
+      213: -4800050652857450774
+    second: Wapichana Logos-10_9
+  - first:
+      213: 4235504381367950090
+    second: Wapichana Logos-10_10
+  - first:
+      213: -7643211410362239322
+    second: Wapichana Logos-10_11
+  - first:
+      213: -8085886617826728723
+    second: Wapichana Logos-10_12
+  - first:
+      213: 4661300191928046912
+    second: Wapichana Logos-10_13
+  - first:
+      213: 431012113819317544
+    second: Wapichana Logos-10_14
+  - first:
+      213: 4883157106632019745
+    second: Wapichana Logos-10_15
+  - first:
+      213: 5879290520287171430
+    second: Wapichana Logos-10_16
+  - first:
+      213: -5827227553532079305
+    second: Wapichana Logos-10_17
+  - first:
+      213: 2831784039776902912
+    second: Wapichana Logos-10_18
+  - first:
+      213: 3814123748696744206
+    second: Wapichana Logos-10_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wapichana Logos-10_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 397
+        width: 308
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8fa949b06cbbdf0800000000000000
+      internalID: -163319208428766982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 397
+        width: 235
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008c957c0f27c0500800000000000000
+      internalID: 363792048372434944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_2
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 397
+        width: 193
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7fe9077e7dd5ea0800000000000000
+      internalID: -5882308149249116167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_3
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 397
+        width: 81
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64da497636030f5a0800000000000000
+      internalID: -6489633859543192250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_4
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 394
+        width: 183
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459ef1f8675e99690800000000000000
+      internalID: -7594786999213495980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_5
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 397
+        width: 214
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3710efb5d158970800000000000000
+      internalID: 8756437331432534997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_6
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 397
+        width: 235
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38c8e1c57e2b47c70800000000000000
+      internalID: 8967989464754195587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_7
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 397
+        width: 210
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba00a216caf55160800000000000000
+      internalID: 7013787723322362548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_8
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 397
+        width: 236
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26d81b31b48d7520800000000000000
+      internalID: 2701461248227726890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_9
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 234
+        width: 86
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeebc8cec5bc26db0800000000000000
+      internalID: -4800050652857450774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_10
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 234
+        width: 97
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b1c005bc887ca30800000000000000
+      internalID: 4235504381367950090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_11
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 232
+        width: 122
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6752eb7bbdde590800000000000000
+      internalID: -7643211410362239322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_12
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 234
+        width: 107
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de46a5246f829cf80800000000000000
+      internalID: -8085886617826728723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_13
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 232
+        width: 100
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045d453f3d340b040800000000000000
+      internalID: 4661300191928046912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_14
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 232
+        width: 114
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8253712eb334bf500800000000000000
+      internalID: 431012113819317544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_15
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 234
+        width: 93
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fc933348574c340800000000000000
+      internalID: 4883157106632019745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_16
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 234
+        width: 28
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663d901149f679150800000000000000
+      internalID: 5879290520287171430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_17
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 232
+        width: 122
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7331a5ef967812fa0800000000000000
+      internalID: -5827227553532079305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_18
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 234
+        width: 108
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fd58ba4948c4720800000000000000
+      internalID: 2831784039776902912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapichana Logos-10_19
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 232
+        width: 91
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e016372675d7ee430800000000000000
+      internalID: 3814123748696744206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
